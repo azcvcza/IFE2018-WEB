@@ -1,0 +1,10 @@
+span{
+    display:inline-block;
+}
+h4{
+    display:inline-block;
+}
+p{
+    display:inline-block;
+    border-spacing:2;
+}
