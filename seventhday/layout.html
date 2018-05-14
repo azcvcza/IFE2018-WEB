@@ -1,68 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>文档布局</title>
-    <link href='style.css' rel='stylesheet' type='text/css'>
+    <title>layout</title>
+    <style>
+        h2 {
+            color: white;
+            display: inline-block;
+            position: relative;
+            left: 25%;
+        }
+        
+        p.href {
+            color: white;
+        }
+        
+        div.header {
+            width: 100%;
+        }
+        
+        div.logo {
+            width: 100%;
+        }
+        
+        ul.href {
+            padding-left: 0;
+            margin-top: 0;
+            position: relative;
+            right: 10%;
+        }
+        
+        .logo li {
+            float: left;
+            list-style-type: none;
+            width: 100px;
+        }
+        
+        .logo li a {
+            display: inline-block;
+            text-decoration: none;
+            width: 100%;
+            line-height: 5px;
+            text-align: center;
+        }
+        
+        div.clear {
+            clear: both;
+        }
+        
+        div.banner {
+            width: 100%;
+            height: 500px;
+            background: lightgreen;
+            position: relative;
+        }
+        
+        ul.banner {
+            padding-left: 0;
+            margin-top: 0;
+            position: absolute;
+            bottom: 0%;
+            right: 20%;
+        }
+        
+        ul.banner li {
+            display: inline-block;
+        }
+        
+        button.active {
+            height: 40px;
+            width: 20px;
+        }
+        
+        div.footer {
+            background: lightslategray;
+        }
+        
+        p.footer {
+            color: white;
+        }
+        
+        div.content {
+            position: relative;
+            left: 25%;
+            width: 960px;
+        }
+        
+        .info-box ul {
+            padding-left: 0;
+            margin-top: 0;
+        }
+        
+        .info-box li {
+            float: left;
+            list-style-type: none;
+            width: 150px;
+            align-self: center;
+        }
+        
+        .info-box li a {
+            display: inline-block;
+            text-decoration: none;
+            width: 100%;
+            line-height: 3;
+            background-color: lightgray;
+            text-align: center;
+        }
+        
+        .info-box li a:focus,
+        .info-box li a:hover {
+            background-color: whitesmoke;
+            color: black;
+        }
+        
+        .info-box li a.active {
+            background-color: whitesmoke;
+            color: black;
+        }
+        
+        .info-box .panels {
+            height: 600px;
+            width: 100%;
+            position: relative;
+            clear: both;
+        }
+        
+        .info-box article {
+            position: absolute;
+            top: 5%;
+            height: 480px;
+            width: 100%;
+            color: black;
+            background-color: white;
+        }
+        
+        hr {
+            position: absolute;
+            top: -2%;
+            left: -52%;
+            width: 1920px;
+        }
+        
+        .info-box .active-panel {
+            z-index: 1;
+        }
+        
+        .footer {
+            height: 200px;
+        }
+        
+        p.footer {
+            position: relative;
+            text-align: center;
+        }
+        
+        div.column1 {
+            display: flex;
+        }
+        
+        p.column1 {
+            flex: 1 1 auto;
+            background-color: whitesmoke;
+            border: 1px solid lightgrey;
+            text-align: center;
+            line-height: 180px;
+            margin: 3px;
+        }
+        
+        div.column2 {
+            display: flex;
+        }
+        
+        p.column2 {
+            flex: 1 auto;
+            background-color: whitesmoke;
+            border: 1px solid lightgrey;
+            text-align: center;
+            line-height: 180px;
+            margin: 3px;
+        }
+        
+        div.column3 {
+            display: flex;
+        }
+        
+        p.column3 {
+            flex: 200px;
+            background-color: whitesmoke;
+            border: 1px solid lightgrey;
+            text-align: center;
+            line-height: 200px;
+            margin: 3px;
+        }
+    </style>
 </head>
+
 <body>
+    <div class="header" style="background:black ">
+        <div class="logo">
+            <h2>Logo</h2>
+            <ul class="href" style="float: right">
+                <li>
+                    <a class="href" href="#">
+                        <p class="href">Github</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="href" href="#">
+                        <p class="href">Register</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="href" href="#">
+                        <p class="href">Login</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="banner">
+        <ul class="banner">
+            <li><button class="active"><a href="#">1</a></button></li>
+            <li><button><a href="#">2</a></button></li>
+            <li><button><a href="#">3</a></button></li>
+            <li><button><a href="#">4</a></button></li>
+        </ul>
+    </div>
+    <div class="content">
+        <section class="info-box">
+            <ul>
+                <li><a class="active">Tab 1</a></li>
+                <li><a>Tab 2</a></li>
+                <li><a>Tab 3</a></li>
+            </ul>
 
-
-
-
-    <section class="info-box">
-  <ul>
-    <li><a href="#" class="active">Tab 1</a></li>
-    <li><a href="#">Tab 2</a></li>
-    <li><a href="#">Tab 3</a></li>
-  </ul>
-  <hr style= "border:1px solid lightgrey" >
-  <div class="panels">
-    <article class="active-panel">
-      <h2>The first tab</h2>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque turpis nibh, porttitor nec venenatis eu, pulvinar in augue. Vestibulum et orci scelerisque, vulputate tellus quis, lobortis dui. Vivamus varius libero at ipsum mattis efficitur ut nec nisl. Nullam eget tincidunt metus. Donec ultrices, urna maximus consequat aliquet, dui neque eleifend lorem, a auctor libero turpis at sem. Aliquam ut porttitor urna. Nulla facilisi.</p>
-    </article>
-    <article>
-      <h2>The second tab</h2>
-
-      <p>This tab hasn't got any Lorem Ipsum in it. But the content isn't very exciting all the same.</p>
-    </article>
-    <article>
-      <h2>The third tab</h2>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque turpis nibh, porttitor nec venenatis eu, pulvinar in augue. And now an ordered list: how exciting!</p>
-
-      <ol>
-        <li>dui neque eleifend lorem, a auctor libero turpis at sem.</li>
-        <li>Aliquam ut porttitor urna.</li>
-        <li>Nulla facilisi</li>
-      </ol>
-    </article>
-  </div>
-</section>
+            <div class="panels">
+                <hr style="border:1px solid ;color:lightgray">
+                <article class="active-panel">
+                    <div class="column1">
+                        <p class="column1">hello world</p>
+                        <p class="column1">hello world|</p>
+                        <p class="column1">hello world</p>
+                    </div>
+                    <div class="column2">
+                        <p class="column2">helloworld</p>
+                        <p class="column2">helloworld</p>
+                        <p class="column2">helloworld</p>
+                        <p class="column2">helloworld</p>
+                    </div>
+                    <div class="column3">
+                        <p class="column3">helloworld</p>
+                        <p class="column3">helloworld</p>
+                        <p class="column3">helloworld</p>
+                    </div>
+                </article>
+                <article>
+                    tab2
+                </article>
+                <article>
+                    tab3
+                </article>
+            </div>
+        </section>
+    </div>
+    <div class="footer">
+        <p class="footer">@2018 ife.baidu.com</p>
+    </div>
 </body>
 <script type="text/javascript">
-var tabs = document.querySelectorAll('.info-box li a');
-var panels = document.querySelectorAll('.info-box article');
-for(i = 0; i < tabs.length; i++) {
-var tab = tabs[i];
-setTabHandler(tab, i);
-}
-function setTabHandler(tab, tabPos) {
-tab.onclick = function() {
-for(i = 0; i < tabs.length; i++) {
-  tabs[i].className = '';
-}
-tab.className = 'active';
-for(i = 0; i < panels.length; i++) {
-  panels[i].className = '';
-}
-panels[tabPos].className = 'active-panel';
-}
-}
+    var tabs = document.querySelectorAll('.info-box li a');
+    var panels = document.querySelectorAll('.info-box article');
+    for (i = 0; i < tabs.length; i++) {
+        var tab = tabs[i];
+        setTabHandler(tab, i);
+    }
 
+    function setTabHandler(tab, tabPos) {
+        tab.onclick = function() {
+            for (i = 0; i < tabs.length; i++) {
+                tabs[i].className = '';
+            }
+            tab.className = 'active';
+            for (i = 0; i < panels.length; i++) {
+                panels[i].className = '';
+            }
+            panels[tabPos].className = 'active-panel';
+        }
+    }
 </script>
+
 </html>
