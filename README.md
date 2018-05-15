@@ -1,11 +1,13 @@
 # IFE2018-WEB
 workspace for IFE2018-frontend
 从零开始的前端学院
+1.第五第六天
+2.第七第八天
 
 
 # 第七第八天  
 
-#####文件夹 /seventhday  
+##### 文件夹 /seventhday  
 
 <a href="seventhday"></a>  
 
@@ -21,10 +23,10 @@ after
 <img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/7_firstlayout2.png"  hspace="2" vspace="2">
 
 
-------------------------------
+*** 
 # 第五第六天
 <a href="fifthday"></a>
-#####文件夹 /fifthday  
+##### 文件夹 /fifthday  
 
 1.resume1.html  
 
