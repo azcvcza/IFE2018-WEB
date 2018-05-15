@@ -1,6 +1,12 @@
 # IFE2018-WEB
 workspace for IFE2018-frontend
 从零开始的前端学院  
+***
+### /img(readme.md图片存放)  
+
+### /fifthday(第五第六天课程文件存放)  
+
+### /seventhday(第七第八天课程文件存放）  
 
 
 
