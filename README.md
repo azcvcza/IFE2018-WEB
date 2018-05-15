@@ -5,6 +5,7 @@ workspace for IFE2018-frontend
 2.第七第八天
 
 
+*** 
 # 第七第八天  
 
 ##### 文件夹 /seventhday  
@@ -20,7 +21,68 @@ before
 
 after 
 
-<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/7_firstlayout2.png"  hspace="2" vspace="2">
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/7_firstlayout2.png"  hspace="2" vspace="2">  
+
+
+2.secondlayout.html(实现一个两栏布局，左侧固定宽度，右侧根据浏览器宽度进行自适应变化)  
+
+before
+
+
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/7_secondlayout1.png"  hspace="2" vspace="2"> 
+
+after 
+
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/7_secondlayout2.png"  hspace="2" vspace="2">  
+
+
+3.thirdlayout.html(实现一个两栏布局，右侧固定宽度，左侧根据浏览器宽度进行自适应变化)  
+
+before
+
+
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/7_thirdlayout1.png"  hspace="2" vspace="2"> 
+
+after 
+
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/7_thirdlayout2.png"  hspace="2" vspace="2">  
+
+4.fourthlayout.html(实现一个三栏布局，左侧固定宽度，右侧固定宽度，中间部分宽度随浏览器宽度变化而自适应变化)  
+
+before
+
+
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/7_fourthlayout1.png"  hspace="2" vspace="2"> 
+
+after 
+
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/7_fourthlayout2.png"  hspace="2" vspace="2">  
+
+
+5.fifthlayout.html(实现一个三栏布局，左侧固定宽度，中间固定宽度，右侧根据浏览器宽度变化而自适应变化)  
+
+before
+
+
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/7_fifthlayout1.png"  hspace="2" vspace="2"> 
+
+after 
+
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/7_fifthlayout2.png"  hspace="2" vspace="2">  
+
+
+6.fifthlayout.html(参考如下设计稿实现HTML页面及CSS样式,编码实现)
+
+target
+
+
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/seventhday/ife%E4%BB%BB%E5%8A%A1%E5%9B%BE.png"  hspace="2" vspace="2"> 
+
+after 
+
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/7_layout.png"  hspace="2" vspace="2">  
+
+
 
 
 *** 
