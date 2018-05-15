@@ -11,12 +11,14 @@ workspace for IFE2018-frontend
 
 
 
-*** 
+***   
+<a id="seventhday"></a>   
+
 # 第七第八天  
 
 ##### 文件夹 /seventhday  
 
-<a id="seventhday"></a>  
+ 
 
 1.firstlayout.html(实现一个两栏布局，左侧占30%宽度，右侧占70%宽度)  
 
@@ -107,9 +109,11 @@ source
 
 
 
-*** 
+***   
+<a id="fifthday"></a>  
+
 # 第五第六天
-<a id="fifthday"></a>
+
 ##### 文件夹 /fifthday  
 
 1.resume1.html  
