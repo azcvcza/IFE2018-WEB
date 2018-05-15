@@ -3,10 +3,9 @@ workspace for IFE2018-frontend
 从零开始的前端学院  
 ***
 
-### <a id="fifthday">/fifthday(第五第六天课程文件存放)</a>  
+### [1.1第五第六天](#fifthday)  
 
-
-### <a id="seventhday">/seventhday(第七第八天课程文件存放)</a>
+### [1.2第七第八天](#seventhday) 
 
 
 
@@ -17,7 +16,7 @@ workspace for IFE2018-frontend
 
 ##### 文件夹 /seventhday  
 
-<a href="#seventhday"></a>  
+<a id="seventhday"></a>  
 
 1.firstlayout.html(实现一个两栏布局，左侧占30%宽度，右侧占70%宽度)  
 
@@ -110,7 +109,7 @@ source
 
 *** 
 # 第五第六天
-<a href="#fifthday"></a>
+<a id="fifthday"></a>
 ##### 文件夹 /fifthday  
 
 1.resume1.html  
