@@ -2,10 +2,12 @@
 
 ##### 文件夹 /seventhday  
 
-<a href="seventhday"></a>  
+ 
 
 1.firstlayout.html(实现一个两栏布局，左侧占30%宽度，右侧占70%宽度)  
 
+<a href="http://htmlpreview.github.com/?https://github.com/azcvcza/IFE2018-WEB/blob/master/seventhday/firstlayout.html">preview:firstlayout.html</a>  
+  
 <a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/seventhday/firstlayout.html">source:firstlayout.html</a>  
 
 before
@@ -19,7 +21,7 @@ after
 
 
 2.secondlayout.html(实现一个两栏布局，左侧固定宽度，右侧根据浏览器宽度进行自适应变化)  
-
+<a href="http://htmlpreview.github.com/?https://github.com/azcvcza/IFE2018-WEB/blob/master/seventhday/secondlayout.html">preview:secondlayout.html</a>  
 <a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/seventhday/secondlayout.html">source:secondlayout.html</a>  
 
 before
@@ -33,7 +35,7 @@ after
 
 
 3.thirdlayout.html(实现一个两栏布局，右侧固定宽度，左侧根据浏览器宽度进行自适应变化)  
-
+<a href="http://htmlpreview.github.com/?https://github.com/azcvcza/IFE2018-WEB/blob/master/seventhday/thirdlayout.html">preview:thirdlayout.html</a>  
 <a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/seventhday/thirdlayout.html">source:thirdlayout.html</a>  
 
 
@@ -47,7 +49,7 @@ after
 <img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/7_thirdlayout2.png"  hspace="2" vspace="2">  
 
 4.fourthlayout.html(实现一个三栏布局，左侧固定宽度，右侧固定宽度，中间部分宽度随浏览器宽度变化而自适应变化)  
-
+<a href="http://htmlpreview.github.com/?https://github.com/azcvcza/IFE2018-WEB/blob/master/seventhday/fourthlayout.html">preview:fourthlayout.html</a>  
 <a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/seventhday/fourthlayout.html">source:fourthlayout.html</a>  
 
 
@@ -62,7 +64,7 @@ after
 
 
 5.fifthlayout.html(实现一个三栏布局，左侧固定宽度，中间固定宽度，右侧根据浏览器宽度变化而自适应变化)  
-
+<a href="http://htmlpreview.github.com/?https://github.com/azcvcza/IFE2018-WEB/blob/master/seventhday/fifthlayout.html">preview:fifthlayout.html</a>  
 <a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/seventhday/fifthlayout.html">source:fifthlayout.html</a>  
 
 
@@ -77,7 +79,7 @@ after
 
 
 6.fifthlayout.html(参考如下设计稿实现HTML页面及CSS样式,编码实现)  
-
+<a href="http://htmlpreview.github.com/?https://github.com/azcvcza/IFE2018-WEB/blob/master/seventhday/layout.html">preview:layout.html</a>  
 <a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/seventhday/layout.html">source:layout.html</a>  
 
 
