@@ -22,7 +22,8 @@ workspace for IFE2018-frontend
 
 1.firstlayout.html(实现一个两栏布局，左侧占30%宽度，右侧占70%宽度)  
 
-<a href="http://htmlpreview.github.com/?https://github.com/azcvcza/IFE2018-WEB/blob/master/seventhday/firstlayout.html">preview:firstlayout.html</a>  
+<a href="http://htmlpreview.github.com/?https://github.com/azcvcza/IFE2018-WEB/blob/master/seventhday/firstlayout.html">preview:firstlayout.html</a>  
+
 <a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/seventhday/firstlayout.html">source:firstlayout.html</a>  
 
 before
