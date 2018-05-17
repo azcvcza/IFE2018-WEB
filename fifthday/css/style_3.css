@@ -1,0 +1,44 @@
+span{
+    display:inline-block;
+}
+p{
+    display:inline-block;
+}
+h4{
+    display:inline-block;
+}
+
+h1{
+    color:white;
+
+}
+table{
+    table-layout: auto;
+    width:100%;
+    border-collapse: collapse;
+
+}
+th{
+    background: grey;
+    text-align: left;
+}
+tbody{
+    width:100%;
+}
+tr{
+    width: 100%;
+}
+td{
+    width:1px;
+    white-space: nowrap;
+    word-break: keep-all;
+
+}
+td.tbody_name{
+    width:20%;
+    background: lightgrey;
+}
+td.tbody_des{
+    
+
+}
