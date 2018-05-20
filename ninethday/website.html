@@ -109,6 +109,124 @@
         text-align: left;
         flex: 1;
     }
+    
+    img.action {
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+    }
+    
+    div.action {
+        position: relative;
+    }
+    
+    div.content_action {
+        position: absolute;
+        text-align: center;
+        top: 20%;
+        padding-left: 700px;
+        padding-right: 700px;
+    }
+    
+    h1.content_action {
+        text-align: left;
+        color: white;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    }
+    
+    h3.content_action {
+        text-align: left;
+        color: lightgray;
+        font-family: 'Times New Roman', Times, serif
+    }
+    
+    h3.form_action {
+        color: white;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    }
+    
+    p.form_action {
+        color: lightgray;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    
+    form.form_action {
+        display: inline;
+    }
+    
+    fieldset.form_action {
+        border: 1px solid grey;
+    }
+    
+    button.form_action {
+        background-color: white;
+        stroke: transparent;
+    }
+    
+    button.form_action>h4 {
+        color: black;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    
+    div.product_content {
+        display: flex;
+        padding-left: 300px;
+        padding-right: 300px;
+    }
+    
+    h1.product_title {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        text-align: center;
+    }
+    
+    div.product_para {
+        flex-basis: 33%;
+    }
+    
+    h2.para_title {
+        text-align: justify;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    h4.para_content {
+        text-align: left;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    
+    hr {
+        border: 1px lightgray solid;
+    }
+    
+    div.theme_content {
+        padding-top: 50px;
+        padding-left: 400px;
+        padding-right: 400px;
+        padding-bottom: 50px;
+    }
+    
+    div.theme_para1 {
+        float: left;
+        height: 100%;
+    }
+    
+    img.theme_img1 {
+        float: right;
+        height: 100%;
+    }
+    
+    div.theme_para2 {
+        float: right;
+        height: 100%;
+    }
+    
+    img.theme_img2 {
+        float: left;
+        height: 100%;
+    }
+    
+    div.theme_clear {
+        clear: both;
+    }
 </style>
 
 <body>
@@ -180,8 +298,93 @@
             </div>
         </div>
     </div>
-    <div class="action"></div>
-    <div class="product"></div>
+    <div class="action">
+        <img src="img/background_04.png" alt="" class="action">
+        <div class="content_action">
+
+            <h1 class="content_action">Supportive policies</h1>
+            <h1 class="content_action">for China's smart</h1>
+            <h1 class="content_action">car</h1>
+            <h3 class="content_action">Hello World</h3>
+            <div class="form_action">
+                <fieldset class="form_action">
+                    <h3 class="form_action">CREATE YOUR ACCOUNT</h3>
+                    <p class="form_action">IT IS ABSOLUTELY FREE</p>
+                    <form class="form_action">
+                        <input type="button" value="login" />
+                        <input type="button" value="sign" />
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <div class="product">
+        <h1 class="product_title">Try Our Awesome Product</h1>
+        <div class="product_content">
+            <div class="product_para">
+                <h2 class="para_title">Singleton</h2>
+                <h4 class="para_content">LiJun,a China Academy of Engi-</h4>
+                <h4 class="para_content">neering academician and also</h4>
+                <h4 class="para_content">director of the alliance's experts'</h4>
+                <h4 class="para_content">committee,said that China will</h4>
+                <h4 class="para_content">will also launch design guidance</h4>
+                <h4 class="para_content">for smart cars, smart map architec-</h4>
+                <h4 class="para_content">-ture and standards for test ground</h4>
+
+            </div>
+            <div class="product_para">
+                <h2 class="para_title">HERO</h2>
+                <h4 class="para_content">Lisaid the smart car industry is</h4>
+                <h4 class="para_content">able to enlarge the current car</h4>
+                <h4 class="para_content">industry by 1 trillion yuan($158.15</h4>
+                <h4 class="para_content">billion) and also able to boost fast</h4>
+                <h4 class="para_content">development in 5G,internet of</h4>
+                <h4 class="para_content">cars,big data,artificial intelligence</h4>
+                <h4 class="para_content">and new-energy vehicles</h4>
+            </div>
+            <div class="product_para">
+                <h2 class="para_title">Pottaland</h2>
+                <h4 class="para_content">ZhangJunyi,apartner with NIO</h4>
+                <h4 class="para_content">Capital,said that the smart car is</h4>
+                <h4 class="para_content">the trend for the car industry and</h4>
+                <h4 class="para_content">and china's auto sector will usher in a</h4>
+                <h4 class="para_content">new key developmen stage with </h4>
+                <h4 class="para_content">the improvement of infrastructure</h4>
+                <h4 class="para_content">technology,policies and laws</h4>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="theme">
+        <div class="theme_content">
+            <div class="theme_para1">
+                <h2 class="para_title">Singleton</h2>
+                <h4 class="para_content">LiJun,a China Academy of Engi-</h4>
+                <h4 class="para_content">neering academician and also</h4>
+                <h4 class="para_content">director of the alliance's experts'</h4>
+                <h4 class="para_content">committee,said that China will</h4>
+
+
+            </div>
+            <img src="img/pic_03.png" alt="" class="theme_img">
+            <div class="theme_clear"></div>
+        </div>
+        <div class="theme_content">
+            <div class="theme_para2">
+                <h2 class="para_title">Pottaland</h2>
+                <h4 class="para_content">ZhangJunyi,apartner with NIO</h4>
+                <h4 class="para_content">Capital,said that the smart car is</h4>
+                <h4 class="para_content">the trend for the car industry and</h4>
+                <h4 class="para_content">and china's auto sector will usher in a</h4>
+                <h4 class="para_content">the trend for the car industry and</h4>
+
+            </div>
+            <img src="img/pic_07.png" alt="" class="theme_img">
+            <div class="theme_clear"></div>
+        </div>
+    </div>
+    <hr>
     <div class="crew"></div>
     <div class="footer"></div>
 </body>
