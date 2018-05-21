@@ -22,7 +22,11 @@ workspace for IFE2018-frontend
 
 1.resume1.html  
 <a href="http://htmlpreview.github.com/?https://github.com/azcvcza/IFE2018-WEB/blob/master/ninethday/website.html">preview:website.html</a>  
-<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/ninethday/website.html"  hspace="2" vspace="2">
+<a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/ninethday/website.html">source:website.html</a>  
+
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/9_header.png"  hspace="2" vspace="2">  
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/9_welcome.png"  hspace="2" vspace="2">  
+
 
 ***  
 
