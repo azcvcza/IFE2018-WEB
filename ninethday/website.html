@@ -227,6 +227,58 @@
     div.theme_clear {
         clear: both;
     }
+    
+    h2.crew_title {
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    h4.crew_content {
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    
+    div.crew_content {
+        display: flex;
+        padding-left: 22%;
+        padding-right: 22%;
+    }
+    
+    div.crew_box {
+        flex-basis: 50%;
+        justify-content: space-between;
+    }
+    
+    img.crew_head {
+        padding: 20px;
+    }
+    
+    div.contract {
+        display: flex;
+        flex-basis: 50%;
+        padding-left: 20%;
+        padding-right: 20%;
+        
+        align-content:space-around;
+    }
+    fieldset.contract_form{
+        height:90%;
+        width: 80%;
+        
+    }
+    div.contract_info{
+        height:80%;
+        margin:10px;
+    }
+    div.contract_way {
+        display:flex;
+        flex-basis: 50%;
+        height:10%;
+        align-items: baseline;
+        
+    }
+    
+    
 </style>
 
 <body>
@@ -385,8 +437,86 @@
         </div>
     </div>
     <hr>
-    <div class="crew"></div>
+    <div class="crew">
+        <div class="crew_header">
+            <h2 class="crew_title">Our Awesome Crew</h2>
+            <h4 class="crew_content">Our unique online teaching style makes learning easy for everyone.Whether you</h4>
+            <h4 class="crew_content">are trying to land a new job.brush up on your skills</h4>
+        </div>
+        <div class="crew_content">
+            <div class="crew_box">
+                <img id="head_03" class="crew_head" src="img/head_03.png" alt="" onmouseover="hover(this);" onmouseout="unhover(this);">
+                <img id="head_06" class="crew_head" src="img/head_06.png" alt="">
+            </div>
+            <div class="crew_box">
+                <img id="head_11" class="crew_head" src="img/head_11.png" alt="">
+                <img id="head_12" class="crew_head" src="img/head_12.png" alt="">
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="contract">
+        <div class="contract_form">
+            <fieldset class="contract_form">
+                <h4 class="contract_form" style="text-align: center">free to write us</h4>
+                <form class="contract_form" style="vertical-align: middle;">
+                    <input type="text" placeholder="e-mail" style="width:80%;padding:20px;margin:10px;height:20px;"/>
+                    <input type="text" placeholder="subject" style="width:80%;padding:20px;margin:10px;height:20px;"/>
+                    <input type="text" placeholder="message" style="width:80%;padding:20px;margin:10px;height:100px;"/>
+                    <input type="button" placeholder="" value="SEND" style="width:80%;padding:20px;margin:30px;height:20px;background-color: black;color: white"/>
+                </form>
+            </fieldset>
+        </div>
+        <div class="contract_info">
+            <h2 class="contract_info">Content</h2>
+            <h4 class="contract_info">Make any design your own using the style editor</h4>
+            <h4 class="contract_info">Personalize fonts,colors,and layouts to</h4>
+            <h4 class="contract_info">create the custom you want</h4>
+        <div class="contract_way" >
+                
+            <img src="img/icon_position.png" alt="" class="contract_info" >
+            <h4 class="contract_detail" >beijing china</h4>
+            
+           
+    </div>
+    <div class="contract_way">
+           
+                <img src="img/icon_phonecall.png" alt="" class="contract_info">
+                <h4 class="contract_detail">123456789</h4>
+            
+        </div>
+        <div class="contract_way"> 
+            <img src="img/icon_mailbox.png" alt="" class="contract_info">
+            <h4 class="contract_detail">halo word@fuck.com</h4>
+        </div>
+            
+
+        </div>
+
+    </div>
     <div class="footer"></div>
 </body>
+<script>
+    //simply change the pic on hover & unhover;
+    function hover(element) {
+        // console.log(element);
+        var id = element.id;
+        document.getElementById(id).setAttribute("src", "img/hover_03.png");
+        //element.setAtrribute('src', 'img/grey_hover.png');
+    }
+
+    function unhover(element) {
+        /*var string = document.getElementsByClassName("crew_head");
+        console.log(string);
+        for (var i in string) {
+            console.log(string[i].id);
+        }
+        */
+        //console.log(element)
+        var url = "img/" + element.id + ".png";
+        var id = element.id;
+        document.getElementById(id).setAttribute("src", url);
+    }
+</script>
 
 </html>
