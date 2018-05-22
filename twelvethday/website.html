@@ -1,12 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>第十二天</title>
 </head>
-<body>
+<style>
+    div.main {
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    div.leftbar {
+        display: flex;
+        flex-direction: column;
+
+        flex-basis: 8%;
+        text-align: center;
+        background-color: #1D2531;
+        padding-bottom: 700px;
+    }
+
     
+
+    div.left_bottom {
+
+        position: absolute;
+        bottom: 2%;
+        left: 2%;
+
+    }
+
+    div.menu {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex-basis: 18%;
+        background-color: #222C3C;
+    }
+
+    div.top_title {
+        display: inline-block;
+        width: 100%;
+        height: 30px;
+        position: relative;
+    }
+
+    p.top_title {
+        color: grey;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        float: left;
+        height: 30px;
+        margin: 0%;
+        position: absolute;
+        left: 5%;
+    }
+
+    img.top_title {
+        position: absolute;
+        right: 10%;
+        float: right;
+        height: 100%;
+        top: 5%;
+    }
+
+    hr.menu {
+        border: 1px lightgrey solid;
+        width: 100%;
+    }
+
+    div.top_content {
+
+        width: 100%;
+        height: 200px;
+
+    }
+
+    div.content_detail {
+        position: relative;
+        width: 100%;
+        height: 20%;
+        display: inline-block;
+    }
+
+    a.top_content {
+        position: absolute;
+        color: white;
+        text-decoration: none;
+        float: left;
+        font: size 10px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+
+    }
+
+    img.top_content {
+        position: absolute;
+        right: 10%;
+        float: right;
+        height: 100%;
+        top: 50%;
+    }
+
+   
+
+    div.middle_title {
+        display: inline-block;
+        margin-top: 50px;
+        width: 100%;
+        height: 30px;
+        position: relative;
+    }
+
+   
+
+    p.middle_title {
+        color: grey;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        float: right;
+        height: 30px;
+        margin: 0%;
+        position: absolute;
+        left: 5%;
+    }
+
+    img.middle_title {
+        position: absolute;
+        right: 10%;
+        float: left;
+        height: 100%;
+        top: 5%;
+    }
+    div.m_content_detail {
+        position: relative;
+        width: 100%;
+        height: 10%;
+        display: inline-block;
+    }
+    
+    a.m_content {
+        float: left;
+        color: white;
+        text-decoration: none;
+        font: size 10px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+    }
+    img.m_content{
+        float:left;
+    }
+    div.bottom_title {
+        display: inline-block;
+        margin-top: 50px;
+        width: 100%;
+        height: 30px;
+        position: relative;
+    }
+
+   
+
+    p.bottom_title {
+        color: grey;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        float: right;
+        height: 30px;
+        margin: 0%;
+        position: absolute;
+        left: 5%;
+    }
+
+    img.bottom_title {
+        position: absolute;
+        right: 10%;
+        float: left;
+        height: 100%;
+        top: 5%;
+    }
+    div.b_content_detail {
+        position: relative;
+        width: 100%;
+        height: 10%;
+        display: inline-block;
+    }
+    
+    a.bottom_content {
+        float: left;
+        color: white;
+        text-decoration: none;
+        font: size 10px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+    }
+    img.bottom_content{
+        float:right;
+    }
+    div.month_goal{
+        position: absolute;
+        bottom:3%;
+    }
+    p.left_month_goal{
+        float: left;
+        color:white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+    p.right_month_goal{
+        float: left;
+        color:white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+</style>
+
+<body>
+    <div class="main">
+        <div class="leftbar">
+            <div class="left_top">
+                <img class="left_top" src="img/left_bar_02.png" alt="">
+                <img class="left_top" src="img/left_bar_06.png" alt="">
+                <img class="left_top" src="img/left_bar_08.png" alt="">
+                <img class="left_top" src="img/left_bar_09.png" alt="">
+            </div>
+            <div class="left_bottom">
+                <img src="img/left_bar_12.png" alt="" class="left_bottom">
+                <img src="img/left_bar_15.png" alt="" class="left_bottom">
+            </div>
+        </div>
+        <div class="menu">
+            <div class="menu_top">
+                <div class="top_title">
+                    <p class="top_title">Menu</p>
+                    <img src="img/left_bar_15.png" alt="" class="top_title">
+                </div>
+                <hr class="menu">
+                <div class="top_content">
+                    <div class="content_detail">
+                        <a href="#" class="top_content">
+                            <p class="top_content">Overview</p>
+                        </a>
+                    </div>
+
+                    <div class="content_detail">
+                        <span>
+                            <a href="#" class="top_content">
+                                <p class="top_content">Sales</p>
+                            </a>
+                            <img src="img/menu_03.png" alt="" class="top_content">
+                        </span>
+                    </div>
+
+                    <div class="content_detail">
+                        <a href="#" class="top_content">
+                            <p class="top_content">Your Staff</p>
+                        </a>
+                    </div>
+
+                    <div class="content_detail">
+                        <a href="#" class="top_content">
+                            <p class="top_content">Analysics & targeting</p>
+                        </a>
+                    </div>
+
+                    <div class="content_detail">
+                        <a href="#" class="top_content">
+                            <p class="top_content">What'new</p>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="menu_middle">
+                <div class="middle_title">
+                    <p class="middle_title">YOUR PRODUCTS</p>
+                    <img src="img/left_bar_15.png" alt="" class="top_title">
+                </div>
+                <hr class="menu">
+                <div class="middle_content">
+                    <div class="m_content_detail">
+                        <img src="img/menu_product_03.png" alt="" class="m_content">
+                        <a href="#" class="m_content">
+                            Books
+                        </a>
+                    </div>
+
+                    <div class="m_content_detail">
+                        <img src="img/menu_product_06.png" alt="" class="m_content">
+                        <a href="#" class="m_content">
+                            Tutorials
+                        </a>
+                    </div>
+
+                    <div class="m_content_detail">
+                        <img src="img/menu_product_08.png" alt="" class="m_content">
+                        <a href="#" class="m_content">
+                            Stocks
+                        </a>
+                    </div>
+
+                    <div class="m_content_detail">
+                        <img src="img/menu_product_10.png" alt="" class="m_content">
+                        <a href="#" class="m_content">
+                            Info graphics
+                        </a>
+                    </div>
+
+                   
+
+                </div>
+            </div>
+            <div class="menu_bottom">
+                    <div class="bottom_title">
+                            <p class="bottom_title"> DashBoard</p>
+                        <img src="img/left_bar_15.png" alt="" class="bottom_title">
+                    </div>
+                    <hr class="menu">
+                    <div class="bottom_content">
+                        <div class="b_content_detail">
+                                <span>
+                            <a href="#" class="bottom_content">
+                                Messages
+                            </a>
+                            <img src="img/menu_07.png" alt="" class="bottom_content">
+                        </span>
+                        </div>
+    
+                        <div class="b_content_detail">
+                            
+                                <a href="#" class="bottom_content">
+                                   Connections
+                                </a>
+                                
+                            
+                        </div>
+    
+                        <div class="b_content_detail">
+                                <span>
+                            <a href="#" class="bottom_content">
+                                Integrations
+                            </a>
+                            <img src="img/menu_10.png" alt="" class="bottom_content">
+                            </span>
+                        </div>
+    
+                        <div class="b_content_detail">
+                            <a href="#" class="bottom_content">
+                                About Settings
+                            </a>
+                        </div>
+    
+                        <div class="b_content_detail">
+                            <a href="#" class="bottom_content">
+                                App Settings
+                            </a>
+                        </div>
+    
+                    </div>
+                </div>
+            <div class="month_goal">
+                <p class="left_month_goal">Monthly Goal</p>
+                <p class="right_month_goal">2000/3200</p>
+                <img src="img/gold_line_03.png" alt="" class="month_goal">
+            </div>
+        </div>
+        <div class="messages">
+            <div class="messagetop"></div>
+            <div class="messageleft"></div>
+            <div class="messageright"></div>
+        </div>
+    </div>
+
 </body>
+
 </html>
