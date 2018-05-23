@@ -11,6 +11,9 @@
     div.main {
         display: flex;
         position: relative;
+
+
+
         width: 100%;
         height: 100%;
 
@@ -23,10 +26,8 @@
         flex-basis: 8%;
         text-align: center;
         background-color: #1D2531;
-        padding-bottom: 700px;
+        padding-bottom: 600px;
     }
-
-    
 
     div.left_bottom {
 
@@ -90,24 +91,20 @@
 
     a.top_content {
         position: absolute;
-        color: white;
+        color: #A9B2BF;
         text-decoration: none;
         float: left;
-        font: size 10px;
+        font-size: 20px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-
-
     }
 
     img.top_content {
         position: absolute;
         right: 10%;
         float: right;
-        height: 100%;
+        height: 80%;
         top: 50%;
     }
-
-   
 
     div.middle_title {
         display: inline-block;
@@ -116,8 +113,6 @@
         height: 30px;
         position: relative;
     }
-
-   
 
     p.middle_title {
         color: grey;
@@ -136,33 +131,33 @@
         height: 100%;
         top: 5%;
     }
+
     div.m_content_detail {
         position: relative;
         width: 100%;
         height: 10%;
         display: inline-block;
     }
-    
+
     a.m_content {
         float: left;
-        color: white;
+        color: #A9B2BF;
         text-decoration: none;
-        font: size 10px;
+        font-size: 20px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
 
+    img.m_content {
+        float: left;
     }
-    img.m_content{
-        float:left;
-    }
+
     div.bottom_title {
         display: inline-block;
         margin-top: 50px;
         width: 100%;
-        height: 30px;
+        height: 20px;
         position: relative;
     }
-
-   
 
     p.bottom_title {
         color: grey;
@@ -178,40 +173,199 @@
         position: absolute;
         right: 10%;
         float: left;
-        height: 100%;
+        height: 30px;
         top: 5%;
     }
+
     div.b_content_detail {
         position: relative;
         width: 100%;
         height: 10%;
         display: inline-block;
     }
-    
+
     a.bottom_content {
         float: left;
-        color: white;
+        color: #A9B2BF;
         text-decoration: none;
-        font: size 10px;
+        font-size: 20px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+
+    a.bottom_content .selected {
+        color: white;
+    }
+
+    img.bottom_content {
+        float: right;
+    }
+
+    div.month_goal {
+        position: absolute;
+        bottom: 3%;
+    }
+
+    p.left_month_goal {
+        float: left;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+
+    p.right_month_goal {
+        float: left;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+
+    img.month_goal {
+        width: 90%;
+    }
+
+    div.messages {
+        flex-basis: 75%;
+        display: flex;
+        flex-direction: column;
 
     }
-    img.bottom_content{
-        float:right;
+
+    div.message_top {
+        flex: 0 10 100%;
+        position: relative;
     }
-    div.month_goal{
+
+    div.message_bottom {
+        flex: 0 1 100%;
+        display: flex;
+
+    }
+
+    div.top_left {
         position: absolute;
-        bottom:3%;
+        left: 2%;
+        top: 0%;
     }
-    p.left_month_goal{
-        float: left;
-        color:white;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+    div.user_info {
+
+        display: flex;
+        position: absolute;
+        right: 2%;
+        top: 0%;
+        flex-direction: row;
+        align-items: flex-start;
+
     }
-    p.right_month_goal{
-        float: left;
-        color:white;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+    p.user_name {
+        flex: 1;
+        margin: 0%;
+
+    }
+
+    p.user_job {
+        flex: 1;
+        margin: 0%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 10px;
+    }
+
+    img.top_right_img {
+        width: 100%;
+        height: 100%;
+    }
+
+    img.user_info {
+        width: 100%;
+        height: 100%;
+    }
+
+    div.massage_bottom_left {
+      flex-basis: 35%
+
+    }
+
+    div.massage_bottom_right {
+        flex-basis: 65%;
+    }
+
+    div.contact_list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    div.contact_search {
+        display: flex;
+        width: 100%;
+    }
+    div.contact_all{
+        display: flex;
+        justify-content: space-between;
+    }
+    input.contact_search {
+        flex: 1;
+    }
+    div.contact_all{
+        display: flex;
+        flex-direction: column;
+    }
+    hr.divide_person{
+        border:1px lightgray solid;
+    }
+    div.contact_person {
+        display: inline-block;
+        position:relative;
+       
+    }
+
+    img.person_head {
+        float:left;
+        width:50px;
+        height:50px;
+    }
+    div.user_detail{
+        float:left;
+    }
+    p.person_name .selected {
+        
+        margin: 0%;
+        color: lightseagreen;
+    
+    }
+    p.person_name{
+        margin:0%;
+        color:black;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    }
+
+    p.person_job {
+        
+        margin: 0%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 10px;
+        color: lightgrey;
+    }
+   
+   
+    p.contact_time{
+        margin: 0%;
+        position: absolute;
+        top:0%;
+        right:0%;
+        font-weight: 8;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color:grey;
+    }
+    div.contact_message{
+        display: inline-block;
+    }
+    p.contact_message{
+        margin:0%;
+        float:left;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 10;
+    }
+    img.contact_message{
+        float:right;
     }
 </style>
 
@@ -307,58 +461,58 @@
                         </a>
                     </div>
 
-                   
+
 
                 </div>
             </div>
             <div class="menu_bottom">
-                    <div class="bottom_title">
-                            <p class="bottom_title"> DashBoard</p>
-                        <img src="img/left_bar_15.png" alt="" class="bottom_title">
-                    </div>
-                    <hr class="menu">
-                    <div class="bottom_content">
-                        <div class="b_content_detail">
-                                <span>
-                            <a href="#" class="bottom_content">
+                <div class="bottom_title">
+                    <p class="bottom_title"> DashBoard</p>
+                    <img src="img/left_bar_15.png" alt="" class="bottom_title">
+                </div>
+                <hr class="menu">
+                <div class="bottom_content">
+                    <div class="b_content_detail">
+                        <span>
+                            <a href="#" class="bottom_content selected">
                                 Messages
                             </a>
                             <img src="img/menu_07.png" alt="" class="bottom_content">
                         </span>
-                        </div>
-    
-                        <div class="b_content_detail">
-                            
-                                <a href="#" class="bottom_content">
-                                   Connections
-                                </a>
-                                
-                            
-                        </div>
-    
-                        <div class="b_content_detail">
-                                <span>
+                    </div>
+
+                    <div class="b_content_detail">
+
+                        <a href="#" class="bottom_content">
+                            Connections
+                        </a>
+
+
+                    </div>
+
+                    <div class="b_content_detail">
+                        <span>
                             <a href="#" class="bottom_content">
                                 Integrations
                             </a>
                             <img src="img/menu_10.png" alt="" class="bottom_content">
-                            </span>
-                        </div>
-    
-                        <div class="b_content_detail">
-                            <a href="#" class="bottom_content">
-                                About Settings
-                            </a>
-                        </div>
-    
-                        <div class="b_content_detail">
-                            <a href="#" class="bottom_content">
-                                App Settings
-                            </a>
-                        </div>
-    
+                        </span>
                     </div>
+
+                    <div class="b_content_detail">
+                        <a href="#" class="bottom_content">
+                            About Settings
+                        </a>
+                    </div>
+
+                    <div class="b_content_detail">
+                        <a href="#" class="bottom_content">
+                            App Settings
+                        </a>
+                    </div>
+
                 </div>
+            </div>
             <div class="month_goal">
                 <p class="left_month_goal">Monthly Goal</p>
                 <p class="right_month_goal">2000/3200</p>
@@ -366,9 +520,144 @@
             </div>
         </div>
         <div class="messages">
-            <div class="messagetop"></div>
-            <div class="messageleft"></div>
-            <div class="messageright"></div>
+            <div class="message_top">
+                <div class="top_left">
+                    <p class="top_left_title">Messages</p>
+                </div>
+                <div class="top_right">
+
+                    <div class="top_right_info">
+                        <div class="user_info">
+                            <img src="img/user_head_03.png" alt="" class="top_right_img">
+                            <div class="user_detail">
+                                <p class="user_name">hello</p>
+                                <p class="user_job">world</p>
+                            </div>
+                            <img src="img/user_info_button_03.png" alt="" class="user_info">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="message_bottom">
+                <div class="message_bottom_left">
+                    <div class="contact_list">
+                        <div class="contact_search">
+                            <input type="text" class="contact_search" placeholder="search for person">
+                            <img src="img/form_button_03.png" alt="" class="contact_search">
+                        </div>
+                        <div class="contact_info">
+                            <div class="contact_all">
+                                <hr class="divide_person">
+                                <div class="contact_person">
+                                    <img src="img/chat_head_03.png" alt="" class="person_head">
+                                    <div class="person_detail">
+                                        <p class="person_name selected">Bessly Berry</p>
+                                        <p class="person_job">twitter</p>
+                                    </div>
+                                    <p class="contact_time">3m</p>
+                                </div>
+                                <div class="contact_message">
+                                    <p class="contact_message">I bake a bike a fake a uzi a holy </p>
+                                    <img src="img/menu_07.png" alt="" class="contact_message">
+                                </div>
+                            </div>
+                            <hr class="divide_person">
+                            <div class="contact_all">
+                                    <div class="contact_person">
+                                        <img src="img/chat_head_06.png" alt="" class="person_head">
+                                        <div class="person_detail">
+                                            <p class="person_name">Victor Weber</p>
+                                            <p class="person_job">facebook</p>
+                                        </div>
+                                        <p class="contact_time">8m</p>
+                                    </div>
+                                    <div class="contact_message">
+                                        <p class="contact_message">I bake a bike a fake a uzi a holy </p>
+                                        
+                                    </div>
+                                </div>
+                                <hr class="divide_person">
+                            <div class="contact_all">
+                                    <div class="contact_person">
+                                        <img src="img/chat_head_09.png" alt="" class="person_head">
+                                        <div class="person_detail">
+                                            <p class="person_name">Justin Benson</p>
+                                            <p class="person_job">facebook</p>
+                                        </div>
+                                        <p class="contact_time">Yesterday</p>
+                                    </div>
+                                    <div class="contact_message">
+                                        <p class="contact_message">I bake a bike a fake a uzi a holy </p>
+                                        
+                                    </div>
+                                </div>
+                                <hr class="divide_person">
+                            <div class="contact_all">
+                                    <div class="contact_person">
+                                        <img src="img/chat_head_12.png" alt="" class="person_head">
+                                        <div class="person_detail">
+                                            <p class="person_name">Jacks</p>
+                                            <p class="person_job">Pirate</p>
+                                        </div>
+                                        <p class="contact_time">Yesterday</p>
+                                    </div>
+                                    <div class="contact_message">
+                                        <p class="contact_message">I bake a bike a fake a uzi a holy </p>
+                                        
+                                    </div>
+                                </div>
+                                <hr class="divide_person">
+                            <div class="contact_all">
+                                    <div class="contact_person">
+                                        <img src="img/chat_head_14.png" alt="" class="person_head">
+                                        <div class="person_detail">
+                                            <p class="person_name">Stephen</p>
+                                            <p class="person_job">Shelton</p>
+                                        </div>
+                                        <p class="contact_time">13 Jun</p>
+                                    </div>
+                                    <div class="contact_message">
+                                        <p class="contact_message">I bake a bike a fake a uzi a holy </p>
+                                        
+                                    </div>
+                                </div>
+                                <hr class="divide_person">
+                            <div class="contact_all">
+                                    <div class="contact_person">
+                                        <img src="img/chat_head_16.png" alt="" class="person_head">
+                                        <div class="person_detail">
+                                            <p class="person_name">Sally Wills</p>
+                                            <p class="person_job">twiiter</p>
+                                        </div>
+                                        <p class="contact_time">12 Jun</p>
+                                    </div>
+                                    <div class="contact_message">
+                                        <p class="contact_message">I bake a bike a fake a uzi a holy </p>
+                                        
+                                    </div>
+                                </div>
+                                <hr class="divide_person">
+                            <div class="contact_all">
+                                    <div class="contact_person">
+                                        <img src="img/chat_head_18.png" alt="" class="person_head">
+                                        <div class="person_detail">
+                                            <p class="person_name">Robert</p>
+                                            <p class="person_job">Potti</p>
+                                        </div>
+                                        <p class="contact_time">9 Jun</p>
+                                    </div>
+                                    <div class="contact_message">
+                                        <p class="contact_message">I bake a bike a fake a uzi a holy </p>
+                                        
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="message_bottom_right"></div>
+            </div>
+
         </div>
     </div>
 
