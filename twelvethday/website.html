@@ -23,10 +23,10 @@
         display: flex;
         flex-direction: column;
 
-        flex-basis: 8%;
+        flex-basis: 10%;
         text-align: center;
         background-color: #1D2531;
-        padding-bottom: 600px;
+        padding-bottom: 800px;
     }
 
     div.left_bottom {
@@ -41,7 +41,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        flex-basis: 18%;
+        flex-basis: 20%;
         background-color: #222C3C;
     }
 
@@ -367,6 +367,122 @@
     img.contact_message{
         float:right;
     }
+    div.message_bottom_right{
+        flex-basis: 70%;
+        
+    }
+    div.message_bottom_right_header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+    }
+    div.current_user{
+        display: inline-block;
+        position: relative;
+    }
+    
+    img.current_user{
+        
+       float:right;
+    }
+    
+    div.tool_message{
+       
+    }
+    p.current_user{
+        margin:0%;
+        float:left;
+    }
+    p.tool_message{
+        margin:0%;
+        float: left;
+    }
+    hr.message{
+        border:1px gainsboro solid;
+    }
+    div.message_bottom_right_content{
+        
+    }
+    div.chat_log{
+        display: flex;
+        flex-direction: row;
+        position:relative;
+        padding:3%;
+    }
+    img.chat_head{
+       height:8%;
+       width:8%;
+    }
+    div.chat_head_top{
+        display: inline-block;
+    }
+    p.chat_user{
+        margin: 0%;
+        float: left;
+    }
+    p.chat_time{
+        position: absolute;
+        left:28%;
+        margin:0%;
+        color:lightgray;
+        font-weight: 2px;
+        float: right;
+        
+    }
+    p.chat_content{
+        margin:0%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 5px;
+    }
+    div.seperation{
+        display: flex;
+        flex-direction: row;
+    }
+    hr.seperation{
+        height:0px; border-top:1px solid #999; border-right:0px; border-bottom:0px; border-left:0px;
+        width:40%;
+        
+    }
+    p.seperation{
+        color:grey;
+        font-weight: 4px;
+       text-align: center;
+       margin: 0%;
+      
+    }
+    div.more_messages{
+        display: flex;
+        flex-direction: row;
+    }
+    a.more_messages{
+        color:lightseagreen;
+       
+       
+     
+       text-decoration: none;
+    }
+    hr.more_messages{
+        height:0px; border-top:1px solid #999; border-right:0px; border-bottom:0px; border-left:0px;
+        width:30%;
+        
+    }
+    div.message_area{
+        display: flex;
+        flex-direction: row;
+        margin-left:15px;
+    }
+    textarea.message_area{
+        flex-basis: 90%;
+        height: 50px;
+    }
+    input.message_area{
+        flex-basis:10%;
+        background: url("img/form_button_07.png");
+        background-size:100% 100%;
+        border:none;
+       
+    }
 </style>
 
 <body>
@@ -655,7 +771,76 @@
                         </div>
                     </div>
                 </div>
-                <div class="message_bottom_right"></div>
+                <div class="message_bottom_right">
+                    <div class="message_bottom_right_header">
+                        <div class="current_user">
+                            <p class="current_user">Bessie Berry</p>
+                            <img src="img/tool_state_12.png" alt="" class="current_user">
+                        </div>
+                        <div class="tool">
+                            <img src="img/tool_state_03.png" alt="" class="tool">
+                            <img src="img/tool_state_04.png" alt="" class="tool">
+                            <img src="img/tool_state_07.png" alt="" class="tool">
+                        </div>
+                        <div class="tool_message">
+                            <p class="tool_message">1 of 28</p>
+                            <img src="img/tool_state_10.png" alt="" class="tool_message">
+                            <img src="img/tool_state_07.png" alt="" class="tool_message">
+                        </div>
+                    </div>
+                    <hr class="message">
+                    <div class="message_bottom_right_content">
+                        <div class="chat_log">
+                                <img src="img/chat_head_03.png" alt="" class="chat_head">
+                            <div class="chat_head">
+                                <div class="chat_head_top"><p class="chat_user">Bessie Berry </p>
+                                    <p class="chat_time">8:23am</p></div>
+                                <div class="chat_head_bottom"><p class="chat_content">hello world, php is the best language in the world ,even c++ is not better than that ,do you agree or not ,or you have some other opinion</p></div>
+                                
+                            </div>
+                           
+                        </div>
+                        <div class="chat_log">
+                                <img src="img/chat_head_06.png" alt="" class="chat_head">
+                            <div class="chat_head">
+                                <div class="chat_head_top"><p class="chat_user">hello </p>
+                                    <p class="chat_time">8:31am</p></div>
+                                <div class="chat_head_bottom"><p class="chat_content">the best is hello world learning ,then you can learn many languages at a short time,right?</p></div>
+                                
+                            </div>
+                            
+                           
+                        </div>
+                        <div class="seperation"><hr class="seperation"><p class="seperation">Tuesday</p><hr class="seperation"></div>
+                        <div class="chat_log">
+                                <img src="img/chat_head_03.png" alt="" class="chat_head">
+                            <div class="chat_head">
+                                <div class="chat_head_top"><p class="chat_user">Bessie Berry </p>
+                                    <p class="chat_time">8:23am</p></div>
+                                <div class="chat_head_bottom"><p class="chat_content">hello world, php is the best language in the world ,even c++ is not better than that ,do you agree or not ,or you have some other opinion</p></div>
+                                
+                            </div>
+                           
+                        </div>
+                        <div class="chat_log">
+                                <img src="img/chat_head_06.png" alt="" class="chat_head">
+                            <div class="chat_head">
+                                <div class="chat_head_top"><p class="chat_user">hello </p>
+                                    <p class="chat_time">8:31am</p></div>
+                                <div class="chat_head_bottom"><p class="chat_content">the best is hello world learning ,then you can learn many languages at a short time,right?</p></div>
+                                <img src="img/chat_img_03.png" alt="" class="chat_content"><img src="img/chat_img_05.png" alt="" class="chat_content">
+                                
+                                
+                            </div>
+                            
+                           
+                        </div>
+                        <div class="more_messages"><hr class="more_messages"><a href="#" class="more_messages">More Messages</a><hr class="more_messages"></div>
+                        
+                    </div>
+                    <div class="message_area"><input type="button" class="message_area">
+                        <textarea name="" id="" cols="30" rows="10" class="message_area" placeholder="helloworld"></textarea></div>
+                </div>
             </div>
 
         </div>
