@@ -24,7 +24,7 @@ workspace for IFE2018-frontend
 <a href="http://htmlpreview.github.com/?https://github.com/azcvcza/IFE2018-WEB/blob/master/twelvethday/website.html">preview:website.html</a>  
 <a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/twelvethday/website.html">source:website.html</a>  
 
-<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/12_.png"  hspace="2" vspace="2">  
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/12_website.png"  hspace="2" vspace="2">  
 
 
 
