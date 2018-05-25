@@ -182,5 +182,5 @@ source
 <img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/resume2.png"  hspace="2" vspace="2">  
 
 3.resume3.html  
-<a href="https://rawgit.com/azcvcza/IFE2018-WEB/blob/master/fifthday/resume3.html">preview:resume3.html</a>  
+<a href="https://cdn.rawgit.com/azcvcza/IFE2018-WEB/93370e47/fifthday/resume3.html">preview:resume3.html</a>  
 <img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/resume3.png"  hspace="2" vspace="2">
