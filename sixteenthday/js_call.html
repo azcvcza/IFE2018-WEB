@@ -7,10 +7,12 @@
     <meta charset="UTF-8">
 </head>
 
+
 <body>
     <div class="main">
         <div class="leftbar">
-            <h1>简历</h1>
+            <h1 id="title" class="title">简历</h1>
+            <button id="button" class="hobit" state="0" >点击查看特殊爱好....</button>
         </div>
 
         <div class="rightbar">
@@ -62,5 +64,17 @@
     </div>
 
 </body>
+<script>
+     document.getElementById("button").onclick = function() {
+            if(this.state=="0"){
+            document.getElementById("title").innerHTML = 'Hello ';
+                this.state="1";
+            }
+            else{
+                document.getElementById("title").innerHTML = '简历';
+                this.state="0";
+            }
+        }
+</script>
 
 </html>
