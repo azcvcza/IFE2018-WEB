@@ -29,7 +29,7 @@ workspace for IFE2018-frontend
 <a href="https://cdn.rawgit.com/azcvcza/IFE2018-WEB/f62261db/seventeenthday/js_call.html">preview:js_call.html</a>  
 <a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/seventeenthday/js_call.html">source:js_call.html</a>  
 
-<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/sixteenthday/img/Animation.gif"  hspace="2" vspace="2">  
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/seventeenthday/img/time.gif"  hspace="2" vspace="2">  
 
 2.js_call2.html  
 （完成第十七天的所有任务）;
@@ -38,7 +38,7 @@ workspace for IFE2018-frontend
 <a href="https://cdn.rawgit.com/azcvcza/IFE2018-WEB/f62261db/seventeenthday/js_call2.html">preview:js_call2.html</a>  
 <a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/seventeenthday/js_call.html">source:js_call2.html</a>  
 
-<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/sixteenthday/img/Animation.gif"  hspace="2" vspace="2">  
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/17_.png"  hspace="2" vspace="2">  
 
   
 
