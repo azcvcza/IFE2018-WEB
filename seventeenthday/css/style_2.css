@@ -1,0 +1,56 @@
+span {
+    display: inline-block;
+}
+
+h4 {
+    display: inline-block;
+}
+
+h1 {
+    text-align: center;
+    line-height: normal;
+    padding-top: 30%;
+    padding-bottom:0%;
+}
+
+button.hobit{
+    position: absolute;
+    left:30%;
+    top:20%;
+}
+p {
+    display: inline-block;
+    border-spacing: 2;
+}
+
+h1 {
+    color: white;
+}
+
+div.main {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+div.leftbar {
+    padding-bottom: 2000px;
+    margin-bottom: -2000px;
+    background-color: lightskyblue;
+    width: 20%;
+    height: inherit;
+    float: left;
+    position: relative;
+}
+
+div.rightbar {
+    padding-bottom: 2000px;
+    margin-bottom: -2000px;
+    width: 80%;
+    height: 100%;
+    float: right;
+}
+
+.clear {
+    clear: both;
+}

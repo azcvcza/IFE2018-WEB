@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ECMA Script</title>
+</head>
+
+<body>
+    <div class="cal">
+        <p>四维运算</p>
+
+        <input id="first-number" type="number" value="0" placeholder="第一个数字">
+        <input id="second-number" type="number" value="0" placeholder="第二个数字">
+        <button id="add-btn" onclick="add()">加</button>
+        <button id="minus-btn" onclick="minus()">减</button>
+        <button id="times-btn" onclick="multiply()">乘</button>
+        <button id="divide-btn" onclick="divide()">除</button>
+        <p id="result1">运算结果</p>
+        <hr>
+    </div>
+    <div class="dec2bin">
+        <p>普通二进制转换</p>
+
+        <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+        <button id="trans-btn" onclick="dec2bin()">转化为二进制</button>
+        <p id="result2">运算结果</p>
+        <hr>
+    </div>
+    <div class="dec2bin2">
+        <p>带位数的二进制转换</p>
+
+        <input id="dec-number1" type="number" placeholder="输入一个十进制非负整数">
+        <input id="bin-bit" type="number" placeholder="输入转化后二进制数字位数">
+        <button id="trans-btn" onclick="dec2bin2()">转化为二进制</button>
+        <p id="result3">运算结果</p>
+        <hr>
+    </div>
+    <div class="print3">
+        <p id="print"></p>
+        <button id="print-btn" onclick="print3()">三的倍数为PA</button>
+        <hr>
+    </div>
+    <div class="mul_table">
+            <p id="mul_table"></p>
+            <button id="print-btn1" onclick="mul_table()">输出乘法表</button>
+    </div>
+</body>
+<script>
+    function mul_table(){
+        /*
+        var result = i*j;
+        var temp ="";
+        temp = i+"*"+j+"="+result;
+        array.push(temp);
+        console.log("i:"+i+",j:"+j);
+        */
+        var i=1;
+        
+        var k=10;
+        var array = [];
+        for(i;i<k;i++){
+            for(var j=i;j<k;j++){
+                var result = i*j;
+                var temp ="";
+                if(j!=9){
+                    temp = i+"*"+j+"="+result+"&nbsp";
+                }
+                else{
+                    temp = i+"*"+j+"="+result+"<br>";
+                }
+                array.push(temp);
+                console.log("i:"+i+",j:"+j);
+            }
+        }
+        document.getElementById("mul_table").innerHTML=array;
+        
+    }
+    function print3(){
+        var arr =[];
+        var i=1;
+        for(i;i<101;i++){
+            var temp="";
+            if(i%3!=0){
+                if(i==10 || i==20||i==30 || i==40||i==50||i==60||i==70||i==80||i==90){
+                    temp=""+i+"<br>";
+                arr.push(temp);
+                }
+                else{
+                temp=""+i;
+                arr.push(temp);
+                }
+            }
+            else{
+                
+                temp="PA";
+                arr.push(temp);
+            }
+        }
+        document.getElementById("print").innerHTML=arr;
+    }
+    function dec2bin() {
+        var number = Number(document.getElementById("dec-number").value);
+        var result = number.toString(2);
+        document.getElementById("result2").innerHTML = "运算结果:" + result;
+    }
+
+    function dec2bin2() {
+        var number = Number(document.getElementById("dec-number1").value);
+        var index = Number(document.getElementById("bin-bit").value);
+        var result = number.toString(2);
+        var length = result.length;
+        var temp = "";
+        if (index - length > 0) {
+            var i = 0;
+            for (i; i < index - length; i++) {
+                temp += "0";
+            }
+        }
+        document.getElementById("result3").innerHTML = "运算结果:" + temp + result;
+
+    }
+
+    var fnum = Number(document.getElementById("first-number").value);
+    var snum = Number(document.getElementById("second-number").value);
+
+    function print(number) {
+        var result1 = document.getElementById("result1")
+        console.log(result1);
+        result1.innerHTML = "运算结果：" + number;
+
+
+    }
+
+    function add() {
+
+        //console.log(fnum.value)
+        //console.log(typeof(fnum));
+        //console.log("-add-\nfnum:"+fnum+",snum:"+snum);
+        var result1 = fnum + snum;
+        print(result1)
+
+    }
+
+    function minus() {
+        var result1 = fnum - snum;
+        print(result1)
+    }
+
+    function multiply() {
+        var result1 = fnum * snum;
+        print(result1)
+    }
+
+    function divide() {
+        var result1;
+        if (snum != 0) {
+            result1 = fnum / snum;
+        } else {
+            result1 = "error:除数不能为0";
+        }
+        print(result1)
+    }
+</script>
+
+</html>

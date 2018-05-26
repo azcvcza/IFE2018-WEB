@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>简历</title>
+    <link href='css/style_2.css' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+</head>
+
+
+<body>
+    <div class="main">
+        <div class="leftbar">
+            <p id="welcome"></p>
+            <h1 id="title" class="title">简历</h1>
+            <button id="button" class="hobit" state="0">点击查看特殊爱好....</button>
+        </div>
+
+        <div class="rightbar">
+            <h2>基本信息</h2>
+            <div class="basic_info">
+                <span>
+                    <h4>姓名</h4>
+                    <p>张三</p>
+                    <h4>性别</h4>
+                    <p>男</p>
+                    <h4>应聘职位</h4>
+                    <p>前端工程师</p>
+                </span>
+            </div>
+            <h2>联系方式</h2>
+            <div class="communication">
+                <span>
+                    <h4>phone</h4>
+                    <p>123456789</p>
+                    <h4>Email</h4>
+                    <a href="baidu.com">baidu.com</a>
+                    <h4>个人主页</h4>
+                    <a href="github.com">github.com</a>
+                </span>
+            </div>
+            <h2>能力描述</h2>
+            <div class="skills">
+                <span>
+                    <h3>技术能力</h3>
+                    <p>熟练掌握js,css,html</p>
+                    <h3>综合能力</h3>
+                    <p>良好的沟通，主动积极，努力勤奋</p>
+                </span>
+            </div>
+            <h2>教育经历</h2>
+            <div class="education">
+                <span>
+                    <h3>本科</h3>
+                    <p>IFE前端小微学院</p>
+                    <h3>研究生</h3>
+                    <p>IFE前端大斌学院</p>
+                </span>
+            </div>
+            <h2>项目经历</h2>
+            <div class="project">
+                <span>
+                    <h3>小杜小杜</h3>
+                    <p>作为前端工程师参与了...</p>
+                    <h3>SAN DOC</h3>
+                    <p>作为文档工程师参与了...</p>
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script>
+    document.getElementById("button").onclick = function () {
+        if (this.state == "0") {
+            document.getElementById("title").innerHTML = 'Hello ';
+            this.state = "1";
+        } else {
+            document.getElementById("title").innerHTML = '简历';
+            this.state = "0";
+        }
+    }
+
+    window.onload = function () {
+        //定时器每秒调用一次fnDate()
+        setInterval(function () {
+            fnDate();
+        }, 1000);
+    }
+    //js 获取当前时间
+    function fnDate() {
+        var oDiv = document.getElementById("div1");
+        var date = new Date();
+        var year = date.getFullYear(); //当前年份
+        var month = date.getMonth(); //当前月份
+        var data = date.getDate(); //天
+        var hours = date.getHours(); //小时
+        var minute = date.getMinutes(); //分
+        var second = date.getSeconds(); //秒
+        var greetings = "";
+        if(hours>6 && hours <12){
+            greetings ="早上好";
+        }
+        else if(hours>12 && hours <18){
+            greetings ="中午好";
+        }
+        else{
+            greetings ="晚上好";
+        }
+        var time =  fnW(hours) + ":" + fnW(minute) + ":" + fnW(second)+"-----------"+greetings;
+        document.getElementById("welcome").innerHTML = time;
+    }
+    //补位 当某个字段不是两位数时补0
+    function fnW(str) {
+        var num;
+        str > 10 ? num = str : num = "0" + str;
+        return num;
+    }
+</script>
+
+</html>
