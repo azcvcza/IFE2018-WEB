@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="news-top" class="section">
+            <h3>Some title</h3>
+            <div><button id="select_all_li" onclick="getAllListItem()">返回页面中所有li标签</button>
+                 <p id="all_li"></p>
+            </div>
+            <div>
+                <button id="select_section_html1" >news-top下span</button>
+                <button id="select_section_html2" >news-normal下span</button>
+                <p id="all_HTML"></p>
+            </div>
+            <div>
+                    <button id="select_active1" >news-top下active href</button>
+                    <button id="select_active2" >news-normal下active href</button>
+                    <p id="all_active"></p>
+                </div>
+            
+            <div class="content">
+                <ul>
+                    <li><span>HTML</span><a href="">Some Link1</a></li>
+                    <li><span>JS</span><a class="active" href="">Some Link2</a></li>
+                    <li><span>CSS</span><a href="">Some Link3</a></li>
+                    <li><span>JS</span><a href="">Some Link4</a></li>
+                </ul>
+            </div>
+            <img src="">
+            <p class="">Some Text</p>
+        </div>
+        <div id="news-normal" class="section">
+            <h3>Some title</h3>
+            <div class="content">
+                <ul>
+                    <li><span>HTML</span><a href="">Some Link1</a></li>
+                    <li><span>HTML</span><a href="">Some Link2</a></li>
+                    <li><span>JS</span><a class="active" href="#">Some Link3</a></li>
+                    <li><span>CSS</span><a href="">Some Link4</a></li>
+                </ul>
+            </div>
+            <img src="">
+            <p class="">Some Text</p>
+        </div>      
+    </div>
+    
+</body>
+<script>
+    button1 = document.getElementById("select_section_html1");
+    button1.onclick=function(){
+        findAllHtmlSpanInOneSection("news-top");
+    }
+    button2 = document.getElementById("select_section_html2");
+    button2.onclick=function(){
+        findAllHtmlSpanInOneSection("news-normal")
+    }
+    button3 = document.getElementById("select_active1");
+    button3.onclick=function(){
+        getActiveLinkContent("news-top")
+    }
+    button4 = document.getElementById("select_active2");
+    button4.onclick=function(){
+        getActiveLinkContent("news-normal")
+    }
+    function getAllListItem() {
+        // 返回页面中所有li标签 只允许使用byid , by tagName childNodes parentNodes
+        var ul =document.getElementsByTagName("li");
+        
+        //console.log(ul);
+        var array =[];
+        
+        var i =0;
+        var length = ul.length;
+        for(i;i<length;i++){
+            array.push(ul[i].innerHTML+"|");
+        }
+        //console.log(array);
+        var result= document.getElementById("all_li");
+        //console.log(result)
+        result.innerHTML = array;
+    }
+
+    function findAllHtmlSpanInOneSection(sectionId) {
+        // 返回某个section下所有span中内容为HTML的span标签
+        var span = document.getElementsByTagName("span");
+        var array =[];
+        for(var i in span){
+            //console.log(span[i]);
+            if(span[i].innerHTML=="HTML"){
+            var parent = span[i].parentNode.parentNode.parentNode.parentNode;
+            var id = parent.id;
+            if(id == sectionId){
+                array.push({sectionId:id,text:span[i].innerHTML});
+            }
+            }
+        }
+        var string =""
+        for(var j in array){
+            string+="section:"+array[j].sectionId+",text:"+array[j].text+"||";
+        }
+        document.getElementById("all_HTML").innerHTML=string;
+        
+    }
+
+    function findListItem(sectionId, spanCont) {
+        // 返回某个section下，所有所包含span内容为spanCont的LI标签
+        
+    }
+    
+    function getActiveLinkContent(sectionId) {
+        // 返回某个section下，class为active的链接中包含的文字内容
+        //终于找到方法了。
+        var a = document.getElementsByTagName("a")
+        var aprop=[];
+
+        for(var i in a){
+            
+            if(a.hasOwnProperty(i)){
+                //console.log(a[i])
+                var parent = a[i].parentNode.parentNode.parentNode.parentNode;
+                //console.log("id:"+parent.id);
+                var id =parent.id;
+                
+                //console.log(a[i].attributes)
+                var attr = a[i].attributes;
+                
+                for(var j in attr){
+                    
+                    if(attr.hasOwnProperty(j)){
+                        console.log(j,attr[j],attr[j].nodeType,attr[j].nodeValue)
+                        if(attr[j].nodeValue=="active"){
+                            aprop.push({id:id,object:a[i].innerHTML})
+                        }
+                    }
+                }
+              
+                
+            }
+        }
+        console.log(aprop)
+        var string=""
+        for(var k in aprop){
+            if(aprop.hasOwnProperty(k)){
+                if(aprop[k].id==sectionId){
+                string+="section id:"+aprop[k].id+",text:"+aprop[k].object+"|";
+                }
+            }
+        }
+        document.getElementById("all_active").innerHTML=string;
+        
+       
+    }
+
+   
+    </script>
+</html>
