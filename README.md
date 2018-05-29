@@ -30,7 +30,7 @@ workspace for IFE2018-frontend
 <a href="https://cdn.rawgit.com/azcvcza/IFE2018-WEB/09f8da96/19_day/dom%20select.html">preview:dom_select.html</a>  
 <a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/19_day/dom%20select.html">source:dom_select.html</a>  
 
-<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/sixteenthday/img/Animation.gif"  hspace="2" vspace="2">  
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/19_dom_select.gif"  hspace="2" vspace="2">  
 
   
 
