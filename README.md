@@ -15,6 +15,25 @@ workspace for IFE2018-frontend
 
 ### [1.6第十七天](#seventeenthday) 
 
+### [1.6第十九天](#19_day) 
+
+  ***   
+<a id="19_day"></a>  
+
+# 第十九天
+
+##### 文件夹 /19_day  
+
+1.dom_select.html  
+
+
+<a href="https://cdn.rawgit.com/azcvcza/IFE2018-WEB/09f8da96/19_day/dom%20select.html">preview:dom_select.html</a>  
+<a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/19_day/dom%20select.html">source:dom_select.html</a>  
+
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/sixteenthday/img/Animation.gif"  hspace="2" vspace="2">  
+
+  
+
  ***   
 <a id="seventeenthday"></a>  
 
