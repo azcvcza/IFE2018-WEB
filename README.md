@@ -29,8 +29,8 @@ workspace for IFE2018-frontend
 1.talk.html  
 
 
-<a href="https://cdn.rawgit.com/azcvcza/IFE2018-WEB/ed102e2c/20_day/talk.html">preview:dom_select.html</a>  
-<a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/20_day/talk.html">source:dom_select.html</a>  
+<a href="https://cdn.rawgit.com/azcvcza/IFE2018-WEB/ed102e2c/20_day/talk.html">preview:talk.html</a>  
+<a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/20_day/talk.html">source:talk.html</a>  
 
 <img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/20_talk.gif"  hspace="2" vspace="2">  
 
