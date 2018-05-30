@@ -179,7 +179,6 @@
         var result="";
         for(var i in child){
             if(child.hasOwnProperty(i)){
-               
                 console.log(child[i],child[i].nodeName,child[i].nodeType);
                 if(child[i].nodeName=="DIV"){
                     content = child[i];
@@ -200,7 +199,7 @@
                                 var cc = ulchild[k].childNodes;
                                 for(var l in cc){
                                     if(cc.hasOwnProperty(l)){
-                                    console.log(cc[l].innerHTML)
+                                    //console.log(cc[l].innerHTML)
                                     if(cc[l].innerHTML==spanCont){
                                         result+="id:"+sectionId+",LI:"+ulchild[k].innerHTML;
                                     }

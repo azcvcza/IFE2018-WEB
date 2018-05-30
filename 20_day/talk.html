@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>和页面对话</title>
+    <style>
+        select {
+            display: none;
+        }
+
+        p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 1px;
+        }
+
+        .palette {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        div.third{
+            display: flex;
+            flex-direction: column;
+        }
+        .palette li {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #000;
+            cursor: pointer;
+            float: left
+        }
+        
+        .one{
+            background-image: url("img/eric.jpg");
+            background-repeat: no-repeat;
+            background-position: 0px 0px;
+            width:480px;
+            height:480px;
+            
+        }
+       
+
+      
+        
+    </style>
+
+</head>
+
+<body>
+    <hr>
+    <div class="first">
+        <p>first mission</p>
+        <input id="name" type="text">
+        <button id="submit-btn">Submit</button>
+    </div>
+    <hr>
+    <div class="second">
+        <p>second mission</p>
+        <label>
+            <input id="school" name="status" type="radio"> School
+        </label>
+        <label>
+            <input id="company" name="status" type="radio"> Company
+        </label>
+
+        <select id="school-select">
+            <option>北京邮电大学</option>
+            <option>黑龙江大学</option>
+            <option>华中科技大学</option>
+        </select>
+
+        <select id="company-select">
+            <option>百度</option>
+            <option>爱奇艺</option>
+        </select>
+    </div>
+    <hr>
+    <div class="third">
+            <p>third mission</p>
+        
+        <ul id="list"class="palette">
+            <li style="background-color:crimson"></li>
+            <li style="background-color:bisque"></li>
+            <li style="background-color:blueviolet"></li>
+            <li style="background-color:coral"></li>
+            <li style="background-color:chartreuse"></li>
+            <li style="background-color:darkolivegreen"></li>
+            <li style="background-color:cyan"></li>
+            <li style="background-color:#194738"></li>
+        </ul>
+        <p class="color-picker">li:color</p>
+    </div>
+    <hr>
+    <div class="fourth" >
+            <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+            <button id="fade-btn" >淡出</button>
+    </div>
+    <hr>
+    <div class="fifth">
+        <div id="one" class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+        
+    </div>
+</body>
+<script>
+    //fifth mission
+    var one = document.getElementById("one");
+    var yaXis = 0;
+    var counter = 0;
+    var oneTimer = window.setInterval(function(){
+        if(counter<17){
+        yaXis-=480;
+        counter++;
+        console.log("now y:"+yaXis+",counter:"+counter);
+        one.style.backgroundPositionY=""+yaXis+"px";
+
+        }
+        else{
+            counter=0;
+            yaXis+=8160;
+            one.style.backgroundPositionY=""+yaXis+"px";
+        }
+
+    },400)
+
+    //fourth mission
+    var fade = document.getElementById("fade-obj");
+    var fade_btn = document.getElementById("fade-btn");
+    var opacity =1;
+   
+    fade_btn.addEventListener("click",function(){
+        
+        var timer=window.setInterval(function(){
+          
+          if(opacity>0){
+           opacity-=0.1;
+           fade.style.cssText+="opacity:"+opacity;
+           //console.log("now fading:"+opacity);
+           fade_btn.innerHTML="淡入";
+           fade_btn.disabled = true;
+          }
+          else if(opacity<0){
+           
+              fade_btn.innerHTML="淡出"
+              fade_btn.disabled = false;
+              fade.style.cssText="width:300px;height:300px;background:#000";
+              opacity =1 ;
+              clearInterval(timer);
+          }
+
+       },1000);
+        
+    })
+    
+
+    //third mission
+    var ul = document.getElementsByClassName("palette");
+    
+    //console.log(ul[0])
+    ul[0].addEventListener("click", function (e) {
+        //console.log(e.target);
+        //console.log(e.target.style.cssText)
+        //console.log(e.nodeName)
+        
+        var color=e.target.style.cssText.replace("background-color","color");
+        document.getElementsByClassName("color-picker")[0].style.cssText=color;
+    })
+
+
+    //second mission
+    var school_drop = document.getElementById("school-select");
+    var compnay_drop = document.getElementById("company-select")
+    var school = document.getElementById("school");
+
+    //console.log(school, school.checked)
+    school.addEventListener("change", function () {
+        //console.log("hello world")
+        school_drop.style.cssText = "display:block";
+        compnay_drop.style.cssText = "display:none";
+    })
+    var company = document.getElementById("company");
+    company.addEventListener("change", function () {
+        //console.log("hello world")
+        school_drop.style.cssText = "display:none";
+        compnay_drop.style.cssText = "display:block";
+    })
+
+
+    //first mission
+    var button = document.getElementById("submit-btn");
+    button.onclick = function () {
+        console.log("input value:" + document.getElementById("name").value);
+    }
+    var input = document.getElementById("name");
+    input.addEventListener('keypress', function (event) {
+        const keyName = event.key;
+        //console.log('keypress event\n\n' + 'key: ' + keyName)
+        if (keyName == 'Enter') {
+            console.log("input value:" + document.getElementById("name").value);
+            input.value = null;
+        }
+    })
+    input.addEventListener('keyup', function (event) {
+        const keyName = event.key;
+        //console.log('keyup event\n\n' + 'key: ' + keyName)
+        if (event.keyCode == 27) {
+            console.log("esc pressed");
+            console.log(input.value)
+            input.value = null;
+        }
+
+    })
+</script>
+
+</html>
