@@ -34,7 +34,7 @@ workspace for IFE2018-frontend
 <a href="https://cdn.rawgit.com/azcvcza/IFE2018-WEB/34b71dd0/22_day/js_type.html">preview:js_type.html  </a>  
 <a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/22_day/js_type.html">source:js_type.html  </a>  
 
-<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/22_js_type1.gif"  hspace="2" vspace="2">  
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/22_js_type_1.gif"  hspace="2" vspace="2">  
 
   ***   
 <a id="20_day"></a>  
