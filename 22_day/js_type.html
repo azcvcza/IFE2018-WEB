@@ -624,8 +624,8 @@
     //获取当前选中输入的内容长度
     str_len.addEventListener("click", function () {
         console.log(selected_second.value);
-        var result = selected_second.value;
-        result_string.innerHTML = result;
+        var result = selected_second.value.length;
+        result_string.innerHTML = "长度为:"+result;
     })
     //当前选中输入中的第3个字符
     str_charat3.addEventListener("click", function () {
@@ -748,7 +748,7 @@
 
 
     //------------------------------------//
-    //firest mission learn number operation
+    //first mission learn number operation
     //function area
     function isNumeric(n) {
         return !isNaN(parseFloat(n)) && isFinite(n);
