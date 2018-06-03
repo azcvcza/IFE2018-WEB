@@ -164,7 +164,7 @@
                         //check submenu's submenu
                         //console.log("got here:"+menuArr[i],menuObject[j].submenu)
                         for(var k in menuObject[j].submenu){
-                            console.log(menuObject[j].submenu[k])
+                            //console.log(menuObject[j].submenu[k])
                             if(menuArr[i][2]==menuObject[j].submenu[k].index){
                                 menuObject[j].submenu[k].submenu[menuArr[i][0]]={index:menuArr[i][0],name:menuArr[i][1],submenu:{},subindex:menuArr[i][2]}
                             }
@@ -176,7 +176,7 @@
             
         }
         //add submenu;
-        console.log(menuObject)
+        console.log("eighth mission,从数组构造对象:"+menuObject)
         
         
     }
