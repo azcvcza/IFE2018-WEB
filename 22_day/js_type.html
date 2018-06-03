@@ -678,18 +678,20 @@
         var beginindex = parseInt(str_a.value);
         var endindex = parseInt(str_b.value);
         var result = text.slice(beginindex, endindex);
-        console.log(selected_second.value, str_a.value, str_b.value, result)
+        //console.log(selected_second.value, str_a.value, str_b.value, result)
         result_string.innerHTML = "slice:" + result;
 
     })
     //当前选中输入框的行数<
     str_line.addEventListener("click", function () {
         //并没有采取很深入的做法。只是简单数了一下一行有多少字符。
+       
         var max_word = 20;
         var length = selected_second.value.length;
         var row_num = Math.ceil(length / max_word);
+       
         //console.log(row_num)
-        result_string = "行数为:" + row_num;
+        result_string.innerHTML = "行数为:" + row_num;
     })
     //使用substr获取选中输入框内容的子字符串，参数为str-a及str-b
     str_substring.addEventListener("click", function () {
@@ -711,6 +713,7 @@
     str_toUpperCase.addEventListener("click", function () {
 
         var result = selected_second.value.toUpperCase();
+        selected_second.value = selected_second.value.toUpperCase()
         //console.log(selected_second.value,result);
         result_string.innerHTML = "大写:" + result;
     })
@@ -718,6 +721,7 @@
     str_toLowerCase.addEventListener("click", function () {
         console.log(selected_second.value);
         var result = selected_second.value.toLowerCase();
+        selected_second.value=selected_second.value.toLowerCase()
         result_string.innerHTML = "小写:" + result;
     })
     //把所选输入框中内容的半角空格全部去除/实际上取得的值分不清全角和半角。
