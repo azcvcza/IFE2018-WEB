@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>more in js</title>
+</head>
+
+<body>
+    <div class="first">
+        <hr>
+        <div>
+            <label>Number A:
+                <input id="radio-a" type="radio" name="math-obj" value="a">
+            </label>
+            <input id="num-a" type="text">
+            <label>Number B:
+                <input id="radio-b" type="radio" name="math-obj" value="b">
+            </label>
+            <input id="num-b" type="text">
+        </div>
+        <div style: "display:flex;flex-direction:column">
+            <button id="button1">判断当前选中的输入框输入内容是否为数字</button>
+            <button id="button2">把 A 四舍五入为 B 个小数位数的数字</button>
+            <button id="button3">当前选中数字的绝对值</button>
+            <button id="button4">对当前选中的数字进行上舍入</button>
+            <button id="button5">对当前选中的数字进行下舍入</button>
+            <button id="button6">把当前选中的数字四舍五入为最接近的整数</button>
+            <button id="button7">返回 A 和 B 中的最高值</button>
+            <button id="button8">返回 A 和 B 中的最低值</button>
+        </div>
+        <p id="result"></p>
+        <hr>
+    </div>
+    <div class="second">
+        <div>
+            <label>String A:
+                <input id="radio-str-a" type="radio" name="str-obj" value="a">
+            </label>
+            <textarea id="txt-str-a"></textarea>
+            <label>String B:
+                <input id="radio-str-b" type="radio" name="str-obj" value="b">
+            </label>
+            <textarea id="txt-str-b"></textarea>
+            <label>Num A：
+                <input id="str-a" type="number" value="0">
+            </label>
+            <label>Num B：
+                <input id="str-b" type="number" value="1">
+            </label>
+        </div>
+        <div>
+            <button id="str1">获取当前选中输入的内容长度</button>
+            <button id="str2">当前选中输入中的第3个字符</button>
+            <button id="str3">把两个输入框的文字连接在一起输出（concat）</button>
+            <button id="str4">输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）</button>
+            <button id="str5">输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）</button>
+            <button id="str6">使用slice获取选中输入框内容的部分内容，参数为num-a及num-b</button>
+            <button id="str7">当前选中输入框的行数</button>
+            <button id="str8">使用substr获取选中输入框内容的子字符串，参数为num-a及num-b</button>
+            <button id="str9">把所选输入框中的内容全部转为大写</button>
+            <button id="str10">把所选输入框中的内容全部转为小写</button>
+            <button id="str11">把所选输入框中内容的半角空格全部去除</button>
+            <button id="str12">把所选输入框中内容的a全部替换成另外一个输入框中的内容</button>
+        </div>
+        <p id="result_string"></p>
+    </div>
+    <div class="third">
+        <p id="result_third"></p>
+    </div>
+    <div class="fifth">
+        <hr>
+        <input id="queue-input" type="text">
+        <p id="queue-cont">队列内容：apple-&gt;pear</p>
+        <button id="in-btn">入队</button>
+        <button id="out-btn">出队</button>
+        <button id="font-btn">打印队头元素内容</button>
+        <button id="empty-btn">判断队列是否为空</button>
+
+    </div>
+    <div class="sixth">
+        <hr>
+        <input id="stack-input" type="text">
+        <p id="stack-cont">栈内容：apple&lt;-pear</p>
+        <button id="stack-push-btn">进栈</button>
+        <button id="stack-pop-btn">退栈</button>
+        <button id="stack-font-btn">打印栈顶元素内容</button>
+        <button id="stack-empty-btn">判断栈是否为空</button>
+    </div>
+</body>
+<script>
+    //------------------------------------//
+    //eighth mission:learning array<->object;
+    /*
+    var scoreArray = [
+    ["Tony", 95, 79, 68], ……
+    ];
+    */
+    var scoreObject = {
+        "Tony": {
+            "Math": 95,
+            "English": 79,
+            "Music": 68
+        },
+        "Simon": {
+            "Math": 100,
+            "English": 95,
+            "Music": 98
+        },
+        "Annie": {
+            "Math": 54,
+            "English": 65,
+            "Music": 88
+        }
+    }
+    var menuArr = [
+        [1, "Area1", -1],
+        [2, "Area2", -1],
+        [3, "Area1-1", 1],
+        [4, "Area1-2", 1],
+        [5, "Area2-1", 2],
+        [6, "Area2-2", 2],
+        [7, "Area1-2-3", 4],
+        [8, "Area2-2-1", 6],
+    ];
+    var scoreArray = [];
+    var menuObject = {};
+    //function area
+    function score_to_array(s){
+        var temp = ""
+        for(var i in s){
+            if(s.hasOwnProperty(i)){
+                //console.log(i,s[i])
+                temp+="{"+i+":"+"{"+s[i].Math+","+s[i].English+","+s[i].Music+"}"
+                scoreArray.push([i,s[i].Math,s[i].English,s[i].Music])
+            }
+        }
+        console.log("eighth mission,\nobject:"+temp+",\nobject->array:"+scoreArray);
+    }
+    function menu_to_object(m){
+        
+        var mlen = m.length;
+        
+        for(var i in menuArr){
+            //console.log("before:"+menuObject[menuArr[i][0]].submenu,menuObject[menuArr[i][0]].submenu==null)
+            //add root to object;
+            if(menuArr[i][2]==-1){
+                //console.log("before:"+i);
+                menuObject[menuArr[i][0]]={index:menuArr[i][0],name:menuArr[i][1],submenu:{},subindex:menuArr[i][2]}
+                
+            }
+            else{
+                //console.log("after:"+i);
+                //check root's submenu
+                for(var j in menuObject){
+                    
+                    if(menuArr[i][2]==menuObject[j].index){
+                        //console.log("we got here")
+                        menuObject[j].submenu[menuArr[i][0]]={index:menuArr[i][0],name:menuArr[i][1],submenu:{},subindex:menuArr[i][2]}
+                    }
+                    if(menuObject[j].submenu!=null){
+                        //check submenu's submenu
+                        //console.log("got here:"+menuArr[i],menuObject[j].submenu)
+                        for(var k in menuObject[j].submenu){
+                            console.log(menuObject[j].submenu[k])
+                            if(menuArr[i][2]==menuObject[j].submenu[k].index){
+                                menuObject[j].submenu[k].submenu[menuArr[i][0]]={index:menuArr[i][0],name:menuArr[i][1],submenu:{},subindex:menuArr[i][2]}
+                            }
+                        }
+                    }
+                }
+            }
+           
+            
+        }
+        //add submenu;
+        console.log(menuObject)
+        
+        
+    }
+    score_to_array(scoreObject)
+    menu_to_object(menuArr)
+
+    //------------------------------------//
+    //seventh mission:learning array sorting;
+    var arr1 = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+    var arr2 = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+    var arr3 = [
+        [10, 14],
+        [16, 60],
+        [7, 44],
+        [26, 35],
+        [22, 63]
+    ];
+    var arr4 = [{
+        id: 1,
+        name: 'candy',
+        value: 40
+    }, {
+        id: 2,
+        name: 'Simon',
+        value: 50
+    }, {
+        id: 3,
+        name: 'Tony',
+        value: 45
+    }, {
+        id: 4,
+        name: 'Annie',
+        value: 60
+    }];
+    //function area
+    //将上面数组(arr1)分别按从大到小以及从小到大进行排序后在console中输出
+    (function arr1_sort() {
+        console.log("seventh mission,数组(数字)排序:" + arr1.sort(function (a, b) {
+            return a - b > 0;
+        }));
+        console.log("seventh mission,数组(数字)排序(翻转):" + arr1.sort(function (a, b) {
+            return a - b > 0;
+        }).reverse());
+    })();
+    //将上面数组(arr2)分别按字母顺序a-z及z-a进行排序，在console中输出
+    (function arr2_sort() {
+        console.log("seventh mission,数组(字母)排序:" + arr2.sort());
+        console.log("seventh mission,数组(字母)排序(翻转):" + arr2.sort().reverse());
+
+    })();
+    //将上面的二维数组(arr3)，按照每个元素中第二个数从大到小的顺序进行排序输出
+    (function arr3_sort() {
+        var temp = arr3.sort(function (a, b) {
+            //console.log(a,b,a[1],b[1])
+            return a[1] - b[1] < 0;
+        });
+
+
+        var i = 0;
+        for (i; i < temp.length; i++) {
+            console.log("seventh mission,二维数组排序(按第二个数):" + temp[i]);
+        }
+
+    })();
+    //将上面数组(arr4)分别按元素对象的value值从小到大进行排序后输出
+    (function arr4_sort() {
+        var temp = arr4.sort(function (a, b) {
+            //console.log(a.value,b.value);
+            return a.value - b.value < 0;
+        })
+        var i = 0;
+        for (i; i < temp.length; i++) {
+            console.log("seventh mission,二维数组排序(按value):" + temp[i].name + " | " + temp[i].value);
+        }
+
+    })();
+
+    //------------------------------------//
+    //sixth mission:learning operate stack;
+    //dom select
+    var stack_input = document.getElementById("stack-input");
+    var p_stack = document.getElementById("stack-cont");
+    var stack_pop = document.getElementById("stack-pop-btn");
+    var stack_push = document.getElementById("stack-push-btn");
+    var stack_print_top = document.getElementById("stack-font-btn");
+    var stack_if_empty = document.getElementById("stack-empty-btn");
+
+    var stack = ["apple", "pear"];
+    //function area;
+    function stack_length_gt_0() {
+        if (stack_length > 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    function stack_formater(s, l) {
+        var result = "栈内容:";
+        var i = 0;
+        for (i; i < l; i++) {
+            if (i != l - 1) {
+                result += "(" + stack[i] + ")<-";
+            } else {
+                result += "(" + stack[i] + ")";
+            }
+        }
+        return result;
+    }
+    //event listener
+    stack_push.addEventListener("click", function () {
+        var result = "";
+        if (stack_input.value != "") {
+            stack.push(stack_input.value);
+            result += stack_formater(stack, stack.length)
+        } else {
+            result += "输入为空";
+        }
+        console.log(stack, stack.length, result)
+        p_stack.innerHTML = result;
+    })
+    stack_pop.addEventListener("click", function () {
+        var result = "";
+        stack = stack.slice(0, stack.length - 1);
+        result += stack_formater(stack, stack.length);
+        p_stack.innerHTML = result;
+    })
+    stack_print_top.addEventListener("click", function () {
+        var result = "";
+        if (stack_length_gt_0) {
+            result += stack[0];
+        } else {
+            result += "栈为空";
+        }
+        p_stack.innerHTML = result;
+
+    })
+    stack_if_empty.addEventListener("click", function () {
+        var result = "";
+        if (stack_length_gt_0) {
+            result += "栈不为空";
+        } else {
+            result += "栈是空的";
+        }
+        p_stack.innerHTML = result;
+    })
+    //------------------------------------//
+    //fifth mission:learning operate queue;
+    //dom select;
+    var p_queue = document.getElementById("queue-cont")
+    var queue_input = document.getElementById("queue-input");
+    var enqueue = document.getElementById("in-btn");
+    var dequeue = document.getElementById("out-btn");
+    var print_head = document.getElementById("font-btn");
+    var if_empty = document.getElementById("empty-btn");
+    var queue = ["apple", "pear"];
+    //function
+    function fommater(queue, length) {
+        var result = "队列内容：";
+        var i = 0;
+        for (i; i < length; i++) {
+
+            if (i != length - 1) {
+                result += queue[i] + "->";
+            } else {
+                result += queue[i];
+            }
+        }
+        return result;
+    }
+
+    //event listener
+    enqueue.addEventListener("click", function () {
+        //console.log(queue_input.value);
+        var temp = queue_input.value;
+
+        if (temp == "") {
+            p_queue.innerHTML = "输入内容为空";
+        } else {
+            queue.push(temp);
+
+        }
+        var length = queue.length;
+        var result = fommater(queue, length)
+        //console.log("result:"+result);
+        p_queue.innerHTML = result;
+
+    })
+    dequeue.addEventListener("click", function () {
+        var length = queue.length;
+        queue = queue.slice(1, length);
+        //console.log("new queue:"+queue);
+        var result = fommater(queue, queue.length);
+        p_queue.innerHTML = result;
+    })
+    print_head.addEventListener("click", function () {
+        var result = queue[0];
+        p_queue.innerHTML = "头元素为:" + result;
+    })
+    if_empty.addEventListener("click", function () {
+        var result = "";
+        if (queue.length != 0) {
+            result += "队列不为空";
+        } else {
+            result += "队列为空"
+        }
+        p_queue.innerHTML = result;
+    })
+    //------------------------------------//
+    //fourth mission:complete four function,learning operate object;
+    var tree = {
+        "id": 0,
+        "name": "root",
+        "left": {
+            "id": 1,
+            "name": "Simon",
+            "left": {
+                "id": 3,
+                "name": "Carl",
+                "left": {
+                    "id": 7,
+                    "name": "Lee",
+                    "left": {
+                        "id": 11,
+                        "name": "Fate"
+                    }
+                },
+                "right": {
+                    "id": 8,
+                    "name": "Annie",
+                    "left": {
+                        "id": 12,
+                        "name": "Saber"
+                    }
+                }
+            },
+            "right": {
+                "id": 4,
+                "name": "Tony",
+                "left": {
+                    "id": 9,
+                    "name": "Candy"
+                }
+            }
+        },
+        "right": {
+            "id": 2,
+            "name": "right",
+            "left": {
+                "id": 5,
+                "name": "Carl",
+            },
+            "right": {
+                "id": 6,
+                "name": "Carl",
+                "right": {
+                    "id": 10,
+                    "name": "Kai"
+                }
+            }
+        }
+    }
+
+    // 假设id和name均不会重复，根据输入name找到对应的id
+    function findIdByName(head, name) {
+
+        if (head == null) {
+            return;
+        }
+        console.log("fourth mission,findIdByName：| " + head.name + " | " + ",target:" + name);
+        if (name != head.name) {
+            findIdByName(head.left, name);
+            findIdByName(head.right, name);
+        } else {
+            console.log("!--fourth mission,findIdByName(),find id:" + head.id + ",name:" + head.name + "--!");
+        }
+        //console.log("type:"+typeof(name));
+
+
+
+
+
+
+
+
+    }
+
+    // 假设id和name均不会重复，根据输入id找到对应的name
+    function findNameById(head, id) {
+        if (head == null) {
+            return;
+        }
+        console.log("fourth mission,findNameById：| " + head.name + " | " + ",target:" + id);
+        if (id != head.id) {
+            findNameById(head.left, id);
+            findNameById(head.right, id);
+        } else {
+            console.log("!--fourth mission,findNameById,find id:" + head.id + ",name:" + head.name + "--!");
+        }
+
+    }
+
+    // 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
+    function getListWithDLR(head) {
+        if (head == null) {
+            return;
+        }
+        console.log("fourth mission,前序遍历：" + head.id + " | " + head.name + " | ")
+        getListWithDLR(head.left);
+        getListWithDLR(head.right);
+    }
+
+    // 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
+    function getListWithLDR(head) {
+        if (head == null) {
+            return;
+        }
+
+        getListWithLDR(head.left);
+        console.log("fourth mission,中序遍历：" + head.id + " | " + head.name + " | ")
+        getListWithLDR(head.right);
+
+    }
+
+    // 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
+    function getListWithLRD(head) {
+        if (head == null) {
+            return;
+        }
+
+        getListWithLRD(head.left);
+
+        getListWithLRD(head.right);
+        console.log("fourth mission,后序遍历：" + head.id + " | " + head.name + " | ")
+
+    }
+    findIdByName(tree, "Tony")
+    findNameById(tree, 4)
+    getListWithDLR(tree);
+    getListWithLDR(tree);
+    getListWithLRD(tree);
+
+
+
+
+    //------------------------------------//
+    //third mission:complete two function
+    //dom select
+    var result_third = document.getElementById("result_third");
+    //function area
+    function diyTrim(str) {
+
+        var result = str.trim();
+        return result
+    }
+
+    // 测试用例
+    console.log("third misson1,去除空格:" + diyTrim(' a f b    ')); // ->a f b
+    console.log("third misson1,去除空格:" + diyTrim('    ffdaf    ')); // ->ffdaf
+    console.log("third misson1,去除空格:" + diyTrim('1    ')); // ->1
+    console.log("third misson1,去除空格:" + diyTrim('　　f')); // ->f
+    console.log("third misson1,去除空格:" + diyTrim('  　  a f b 　　 ')); // ->a f b
+    console.log("third misson1,去除空格:" + diyTrim(' ')); // ->
+    console.log("third misson1,去除空格:" + diyTrim('　')); // ->
+    console.log("third misson1,去除空格:" + diyTrim('')); // ->
+
+    /*
+    去掉字符串str中，连续重复的地方
+    */
+    function removeRepetition(str) {
+        //将字符串转换成数组，将连续重复数据标成0,最后拼接字符串;
+        var array = str.split("");
+        var length = array.length;
+        if (length == 0) {
+            return "";
+        }
+        var temp = "";
+        var i = 0;
+        for (i; i < length; i++) {
+            if (i + 1 < length) {
+                if (array[i] == array[i + 1]) {
+                    array[i] = "0";
+                    continue;
+                } else {
+                    continue;
+                }
+            }
+            //console.log("i:" + i + ",next:" + (i + 1) + ",[i]:"+array[i]+",[i+1]:"+array[i+1]+"\n now array:"+array);
+        }
+        var j = 0;
+        var result = "";
+        for (j; j < length; j++) {
+            if (array[j] != "0") {
+                result += array[j]
+            }
+        }
+        //console.log("result:"+result)
+
+
+
+        // do something
+
+        return result;
+    }
+
+    // 测试用例
+    console.log("third misson2,去除连续重复:" + removeRepetition("aaa")); // ->a
+    console.log("third misson2,去除连续重复:" + removeRepetition("abbba")); // ->aba
+    console.log("third misson2,去除连续重复:" + removeRepetition("aabbaabb")); // ->abab
+    console.log("third misson2,去除连续重复:" + removeRepetition("")); // ->
+    console.log("third misson2,去除连续重复:" + removeRepetition("abc")); // ->abc
+
+    //------------------------------------//
+    //second mission learn string operation
+    //dom select
+    var selected_second;
+    var a_select = document.getElementById("radio-str-a");
+    var b_select = document.getElementById("radio-str-b");
+    var str_a = document.getElementById("str-a");
+    var str_b = document.getElementById("str-b");
+    var result_string = document.getElementById("result_string");
+    var str_len = document.getElementById("str1");
+    var str_charat3 = document.getElementById("str2");
+    var str_concat = document.getElementById("str3");
+    var str_indexof = document.getElementById("str4");
+    var str_lastindexof = document.getElementById("str5");
+    var str_slice = document.getElementById("str6");
+    var str_line = document.getElementById("str7");
+    var str_substring = document.getElementById("str8");
+    var str_toUpperCase = document.getElementById("str9");
+    var str_toLowerCase = document.getElementById("str10");
+    var str_trim_half_space = document.getElementById("str11");
+    var str_replace = document.getElementById("str12")
+
+
+    a_select.addEventListener("change", function () {
+        console.log("String a selected");
+        selected_second = document.getElementById("txt-str-a");
+    })
+    b_select.addEventListener("change", function () {
+        console.log("String b selected");
+        selected_second = document.getElementById("txt-str-b");
+    })
+    //获取当前选中输入的内容长度
+    str_len.addEventListener("click", function () {
+        console.log(selected_second.value);
+        var result = selected_second.value;
+        result_string.innerHTML = result;
+    })
+    //当前选中输入中的第3个字符
+    str_charat3.addEventListener("click", function () {
+        var result = selected_second.value;
+        var length = result.length;
+        if (length < 3) {
+            result_string.innerHTML = "输入不足三个字符";
+        } else {
+            result_string.innerHTML = "第三个字符为:" + result.charAt(3);
+        }
+    })
+    //把两个输入框的文字连接在一起输出（concat）
+    str_concat.addEventListener("click", function () {
+        var avalue = document.getElementById("txt-str-a");
+        var bvalue = document.getElementById("txt-str-b");
+        var result = avalue.value + bvalue.value;
+        console.log(avalue, bvalue, result)
+        if (result == "") {
+            result_string.innerHTML = "结果为空字符串";
+        } else {
+            result_string.innerHTML = "拼接结果：" + result;
+        }
+    })
+    //输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）
+    str_indexof.addEventListener("click", function () {
+        var avalue = document.getElementById("txt-str-a");
+        var bvalue = document.getElementById("txt-str-b");
+        if (bvalue.value != "") {
+            var result = avalue.value.indexOf(bvalue.value);
+            result_string.innerHTML = "位置为:" + result;
+        } else {
+            result_string.innerHTML = "搜索字符串为空";
+        }
+    })
+    //输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）
+    str_lastindexof.addEventListener("click", function () {
+        var avalue = document.getElementById("txt-str-a");
+        var bvalue = document.getElementById("txt-str-b");
+        if (bvalue.value != "") {
+            var result = avalue.value.lastIndexOf(bvalue.value);
+            result_string.innerHTML = "位置为:" + result;
+        } else {
+            result_string.innerHTML = "搜索字符串为空";
+        }
+    })
+    //使用slice获取选中输入框内容的部分内容，参数为str-a及str-b
+    str_slice.addEventListener("click", function () {
+
+        var text = selected_second.value;
+        var beginindex = parseInt(str_a.value);
+        var endindex = parseInt(str_b.value);
+        var result = text.slice(beginindex, endindex);
+        console.log(selected_second.value, str_a.value, str_b.value, result)
+        result_string.innerHTML = "slice:" + result;
+
+    })
+    //当前选中输入框的行数<
+    str_line.addEventListener("click", function () {
+        //并没有采取很深入的做法。只是简单数了一下一行有多少字符。
+        var max_word = 20;
+        var length = selected_second.value.length;
+        var row_num = Math.ceil(length / max_word);
+        //console.log(row_num)
+        result_string = "行数为:" + row_num;
+    })
+    //使用substr获取选中输入框内容的子字符串，参数为str-a及str-b
+    str_substring.addEventListener("click", function () {
+        var result = selected_second.value;
+        var start_index = str_a.value;
+        var end_index = str_b.value;
+        if (start_index != end_index) {
+            if (result != "") {
+                var result = result.substring(start_index, end_index);
+                result_string.innerHTML = "位置为:" + result;
+            } else {
+                result_string.innerHTML = "搜索字符串为空";
+            }
+        } else {
+            result_string.innerHTML = "起始下标不能等于结束下标";
+        }
+    })
+    //把所选输入框中的内容全部转为大写
+    str_toUpperCase.addEventListener("click", function () {
+
+        var result = selected_second.value.toUpperCase();
+        //console.log(selected_second.value,result);
+        result_string.innerHTML = "大写:" + result;
+    })
+    //把所选输入框中的内容全部转为小写
+    str_toLowerCase.addEventListener("click", function () {
+        console.log(selected_second.value);
+        var result = selected_second.value.toLowerCase();
+        result_string.innerHTML = "小写:" + result;
+    })
+    //把所选输入框中内容的半角空格全部去除/实际上取得的值分不清全角和半角。
+    str_trim_half_space.addEventListener("click", function () {
+        var temp = selected_second.value;
+        var array = temp.split(" ");
+        var length = array.length;
+        var result = "";
+        var i = 0;
+        for (i; i < length; i++) {
+            if (array[i] != "") {
+                result += array[i];
+            }
+        }
+
+        console.log(temp, result)
+        result_string.innerHTML = "去掉空格后：" + result;
+    })
+    //把所选输入框中内容的a全部替换成另外一个输入框中的内容
+    str_replace.addEventListener("click", function () {
+        var avalue = document.getElementById("txt-str-a");
+        var bvalue = document.getElementById("txt-str-b");
+        avalue.value = bvalue.value;
+
+
+
+    })
+
+
+    //------------------------------------//
+    //firest mission learn number operation
+    //function area
+    function isNumeric(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+
+    //dom operation
+    var selected;
+    var listenA = document.getElementById("radio-a");
+    var listenB = document.getElementById("radio-b");
+    var checktype = document.getElementById("button1");
+    var parsefloat = document.getElementById("button2");
+    var abs = document.getElementById("button3");
+    var ceil = document.getElementById("button4");
+    var floor = document.getElementById("button5");
+    var round = document.getElementById("button6");
+    var higher = document.getElementById("button7");
+    var lower = document.getElementById("button8");
+    var p = document.getElementById("result");
+
+    //listener binding
+    listenA.addEventListener("change", function () {
+        console.log("number a selected")
+        //console.log(listenA)
+        selected = document.getElementById("num-a");
+        //console.log(selected)
+        //console.log(selected.value)
+    })
+    listenB.addEventListener("change", function () {
+        console.log("number b selected")
+        //console.log(listenB)
+        selected = document.getElementById("num-b");
+    });
+    //检查数字类型
+    checktype.addEventListener("click", function () {
+        if (isNumeric(selected.value)) {
+            p.innerHTML = "from:" + selected.id + ",this is a number:" + selected.value;
+        } else {
+            p.innerHTML = "from" + selected + "this is not a number:" + selected.value;
+        }
+    });
+    //小数转换
+    parsefloat.addEventListener("click", function () {
+        var aValue = document.getElementById("num-a").value;
+        var bValue = document.getElementById("num-b").value;
+        if (isNumeric(aValue) && isNumeric(bValue)) {
+            var zerobit = aValue.length;
+            var zeroCounter = 0;
+            var realCounter = 0;
+            console.log(aValue, bValue, zerobit);
+            bValue = parseInt(bValue);
+            var i = 0;
+            for (i; i < zerobit; i++) {
+                if (aValue.charAt(i) == '.') {
+                    zeroCounter++;
+                    realCounter++;
+                    break;
+                } else {
+                    realCounter++;
+                    zeroCounter++;
+                }
+            }
+            var afterZero = zerobit - zeroCounter; //计算小数点后数字,
+            afterZero = bValue < afterZero ? bValue : afterZero;
+            console.log(realCounter, afterZero);
+            var realStrLen = realCounter + afterZero + 1; //多保留一位为了进位
+            var realStr = aValue.substring(0, realStrLen);
+            console.log(realStr)
+            console.log(realStr.charAt(realStrLen - 1))
+            console.log()
+            if (parseInt(realStr.charAt(realStrLen - 1)) >= 5) {
+
+                realStr = realStr.substring(0, realStrLen - 2) + (parseInt(realStr.charAt(realStrLen - 2)) + 1);
+            } else {
+                realStr = realStr.substring(0, realStrLen - 1);
+            }
+            console.log("在进位之后:" + realStr);
+            var result = parseFloat(realStr);
+            p.innerHTML = result;
+        } else {
+            p.innerHTML = "a and b must be number";
+        }
+    });
+    //当前选中转换为绝对值
+    abs.addEventListener("click", function () {
+        //console.log(typeof(selected.value),selected.value);
+        if (isNumeric(selected.value)) {
+            var result = Math.abs(parseInt(selected.value));
+            p.innerHTML = "绝对值:" + result;
+        } else {
+            p.innerHTML = "选中值不是数字"
+        }
+    })
+    //对当前选中数字进行上舍入
+    ceil.addEventListener("click", function () {
+        //console.log(parseFloat(selected.value));
+        if (isNumeric(selected.value)) {
+            var result = Math.ceil(parseFloat(selected.value));
+            p.innerHTML = "向上舍入:" + result
+        } else {
+            p.innerHTML = "选中值不是数字"
+        }
+    })
+    //对当前选中数字向下舍入
+    floor.addEventListener("click", function () {
+        //console.log(parseFloat(selected.value));
+        if (isNumeric(selected.value)) {
+            var result = Math.floor(parseFloat(selected.value));
+            p.innerHTML = "向下舍入:" + result
+        } else {
+            p.innerHTML = "选中值不是数字"
+        }
+    })
+    //把当前选中的数字四舍五入为最接近的证书
+    round.addEventListener("click", function () {
+        //console.log(parseFloat(selected.value));
+        if (isNumeric(selected.value)) {
+            var result = Math.round(parseFloat(selected.value));
+            p.innerHTML = "四舍五入:" + result
+        } else {
+            p.innerHTML = "选中值不是数字"
+        }
+    })
+    //返回A和B中的最高值
+    higher.addEventListener("click", function () {
+        var aValue = document.getElementById("num-a").value;
+        var bValue = document.getElementById("num-b").value;
+        if (isNumeric(aValue) && isNumeric(bValue)) {
+            aValue = parseFloat(aValue);
+            bValue = parseFloat(bValue);
+            var result = (aValue - bValue) > 0 ? aValue : bValue;
+            p.innerHTML = "较高值为:" + result;
+        } else {
+            p.innerHTML = "a and b must be number";
+        }
+
+    })
+    //返回A和B中的最低值
+    lower.addEventListener("click", function () {
+        var aValue = document.getElementById("num-a").value;
+        var bValue = document.getElementById("num-b").value;
+        if (isNumeric(aValue) && isNumeric(bValue)) {
+            aValue = parseFloat(aValue);
+            bValue = parseFloat(bValue);
+            var result = (aValue - bValue) > 0 ? bValue : aValue;
+            p.innerHTML = "较低值为:" + result;
+        } else {
+            p.innerHTML = "a and b must be number";
+        }
+    })
+</script>
+
+</html>
