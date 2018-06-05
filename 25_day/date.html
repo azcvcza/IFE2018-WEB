@@ -186,16 +186,16 @@
         </select>
 
         <select id="minite-select">
-            <option value="0">00</option>
-            <option value="1">01</option>
-            <option value="2">02</option>
-            <option value="3">03</option>
-            <option value="4">04</option>
-            <option value="5">05</option>
-            <option value="6">06</option>
-            <option value="7">07</option>
-            <option value="8">08</option>
-            <option value="9">09</option>
+            <option value="00">00</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
             <option value="10">10</option>
             <option value="11">11</option>
             <option value="12">12</option>
@@ -249,16 +249,16 @@
         </select>
 
         <select id="second-select">
-            <option value="0">00</option>
-            <option value="1">01</option>
-            <option value="2">02</option>
-            <option value="3">03</option>
-            <option value="4">04</option>
-            <option value="5">05</option>
-            <option value="6">06</option>
-            <option value="7">07</option>
-            <option value="8">08</option>
-            <option value="9">09</option>
+            <option value="00">00</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
             <option value="10">10</option>
             <option value="11">11</option>
             <option value="12">12</option>
@@ -323,21 +323,22 @@
     var g_year = document.getElementById("year-select");
     var g_month = document.getElementById("month-select");
     var g_day = document.getElementById("day-select");
+
     var days_num = {
-                1: 31,
-                2: 28,
-                3: 31,
-                4: 30,
-                5: 31,
-                6: 30,
-                7: 31,
-                8: 31,
-                9: 30,
-                10: 31,
-                11: 30,
-                12: 31,
-                
-            };
+        1: 31,
+        2: 28,
+        3: 31,
+        4: 30,
+        5: 31,
+        6: 30,
+        7: 31,
+        8: 31,
+        9: 30,
+        10: 31,
+        11: 30,
+        12: 31,
+
+    };
 
     //function area
     window.onload = function () {
@@ -345,70 +346,70 @@
 
         var timer = setInterval(function () {
             //determine_days()
-            fnDate();
-            minus_Date();
+            var result = fnDate();
+            minus_Date(result);
         }, 1000);
         stop.addEventListener("click", function () {
             clearInterval(timer)
         });
         g_month.addEventListener("change", function () {
             var s_day_length = g_day.options.length;
-            for(var k in g_day){
+            for (var k in g_day) {
                 g_day.remove(g_day[k]);
             }
             d_year = g_year.value;
             d_month = g_month.value;
             var if_2_29;
-          
+
             //console.log(g_year.value, g_month.value,(d_year % 4 == 0 && d_year % 100 != 0) || (d_year % 400) == 0,days_num[2]);
             if ((d_year % 4 == 0 && d_year % 100 != 0) || (d_year % 400) == 0) {
                 if_2_29 = true;
-                days_num[2]=29;
+                days_num[2] = 29;
                 //console.log("after change",days_num[2])
             } else {
                 if_2_29 = false;
-                days_num[2]=28;
+                days_num[2] = 28;
             }
-            var i=1;
+            var i = 1;
             //console.log("before creating",days_num[2])
             var len = days_num[d_month];
-            for(i;i<=len;i++){
-                
+            for (i; i <= len; i++) {
+
                 var opt = document.createElement("OPTION");
                 opt.value = i;
-                opt.text =""+i;
+                opt.text = "" + i;
                 g_day.add(opt);
                 //console.log(i,opt);
-                
+
             }
 
         });
-        g_year.addEventListener("change",function(){
+        g_year.addEventListener("change", function () {
             var s_day_length = g_day.options.length;
-            for(var k in g_day){
+            for (var k in g_day) {
                 g_day.remove(g_day[k]);
             }
             d_year = g_year.value;
             d_month = g_month.value;
             var if_2_29;
-          
+
             //console.log(g_year.value, g_month.value,(d_year % 4 == 0 && d_year % 100 != 0) || (d_year % 400) == 0,days_num[2]);
             if ((d_year % 4 == 0 && d_year % 100 != 0) || (d_year % 400) == 0) {
                 if_2_29 = true;
-                days_num[2]=29;
+                days_num[2] = 29;
                 //console.log("after change",days_num[2])
             } else {
                 if_2_29 = false;
-                days_num[2]=28;
+                days_num[2] = 28;
             }
-            var i=1;
+            var i = 1;
             //console.log("before creating",days_num[2])
             var len = days_num[d_month];
-            for(i;i<=len;i++){
-                
+            for (i; i <= len; i++) {
+
                 var opt = document.createElement("OPTION");
                 opt.value = i;
-                opt.text =""+i;
+                opt.text = "" + i;
                 g_day.add(opt);
                 //console.log(i,opt);
             }
@@ -417,9 +418,10 @@
 
     }
 
-  
 
-    function minus_Date() {
+
+    function minus_Date(resource) {
+        //console.log("in minus_date():", resource, typeof (resource));
         var s_year = document.getElementById("year-select").value;
         var s_month = document.getElementById("month-select").value;
         var s_day = document.getElementById("day-select").value;
@@ -427,11 +429,45 @@
         var s_minite = document.getElementById("minite-select").value;
         var s_second = document.getElementById("second-select").value;
         var p_result = document.getElementById("result-wrapper");
-        console.log("in minus_date()", s_year, s_month, s_day, s_hour, s_minite, s_second);
+        //console.log("in minus_date(),detail", s_year, s_month, s_day, s_hour, s_minite, s_second);
         var head = "现在距离：";
         var s_date = s_year + "年" + s_month + "月" + s_day + "日" + s_hour + ":" + s_minite + ":" + s_second;
-        console.log(head,s_date)
-        p_result.innerHTML = head + s_date;
+        //console.log("in minus date(),string build",head,s_date)
+        var from = resource;
+        var now_a_days = from.slice(0,4)+"年"+from.slice(4,6)+"月"+from.slice(6,8)+"日 | "+from.slice(8,10)+":"+from.slice(10,12)+":"+from.slice(12,14);
+        var to = s_year + fnW(s_month) + fnW(s_day) + s_hour + s_minite + s_second;
+
+        if (parseInt(from) - parseInt(to) > 0) {
+            head = "现在"+now_a_days+"<br>距离 \"所选时间\" " + s_date + "已经过去";
+
+        } else {
+            head = "现在"+now_a_days+"<br>距离 \"所选时间\"" + s_date + " 还有";
+        }
+        var minus_year = Math.abs(parseInt(from.slice(0, 4)) - parseInt(to.slice(0, 4)));
+        var minus_month = Math.abs(parseInt(from.slice(4, 6)) - parseInt(to.slice(4, 6)));
+        var minus_day = Math.abs(parseInt(from.slice(6, 8)) - parseInt(to.slice(6, 8)));
+        var minus_hour = Math.abs(parseInt(from.slice(8, 10)) - parseInt(to.slice(8, 10)));
+        var minus_minute = Math.abs(parseInt(from.slice(10, 12)) - parseInt(to.slice(10, 12)));
+        var minus_second = Math.abs(parseInt(from.slice(12, 14)) - parseInt(to.slice(12, 14)));
+        
+        /*var from_hour =parseInt(from.slice(8, 10));
+        var from_minute =parseInt(from.slice(10, 12));
+        var from_second =parseInt(from.slice(12, 14));
+        var to_hour=parseInt(to.slice(8, 10));
+        var to_minute=parseInt(to.slice(10, 12));
+        var to_second=parseInt(to.slice(12, 14));
+        var from_total = from_hour*24*60 + from_minute*60+from_second;
+        var to_total = to_hour*24*60 + to_minute*60 + to_second;
+        var subtract = Math.abs(from_total-to_total);
+        var sh =Math.floor(subtract/24/60);
+        var sm = Math.floor((subtract/24/60 - sh)*60);
+        var ss = subtract - sh*24*60 - sm*60;
+        */
+        //console.log("from:"+from_total,"to:"+to_total,"sh:"+sh,"sm:"+sm,"ss:"+ss,"result:"+subtract)
+        //console.log("got nimus year", minus_year,minus_month,minus_day,minus_hour,minus_minute,minus_second);
+        //console.log("in minus date(),from & to:", parseInt(from), parseInt(to), head);
+        var end = "<br> | "+minus_year+"年"+minus_month+"月"+minus_day+"日"+" | "+minus_hour+":"+minus_minute+":"+minus_second;
+        p_result.innerHTML = head+end;
     }
     //js 获取当前时间
     function fnDate() {
@@ -440,7 +476,7 @@
         //
         var date = new Date();
         var year = date.getFullYear(); //当前年份
-        var month = fnW(date.getMonth()); //当前月份
+        var month = fnW(date.getMonth() + 1); //当前月份
         var exactday = fnW(date.getDate()); //天
         var day = date.getDay(); //星期几
 
@@ -465,11 +501,14 @@
             minute: minute,
             second: second
         }
+        var result = year + month + exactday + hours + minute + second;
 
         var time = formatter(whole);
         var time2 = formatter2(whole2)
         document.getElementById("date").innerHTML = time;
         document.getElementById("date2").innerHTML = time2;
+        //console.log("in fnDate,we return",result)
+        return result;
     }
     //formatter 
     function formatter(n) {
