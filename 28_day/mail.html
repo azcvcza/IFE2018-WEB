@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mail</title>
+</head>
+<style>
+    body {
+        width: 100%;
+    }
+
+    div.wrapper {
+
+        display: inline-block;
+        width: 400px;
+
+    }
+
+    input#email-input {
+
+        width: 100%;
+
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        list-style: none;
+
+    }
+
+    ul fieldset {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border-width: 2px;
+        border-top-color: transparent;
+
+    }
+
+    ul li {
+        background: white;
+        width: 100%;
+        display: inline-block;
+        position: relative;
+        line-height: 21px;
+        text-align: left;
+        padding: 0;
+
+    }
+
+    ul li.s_163 {
+        background: pink;
+        width: 100%;
+        display: inline-block;
+        position: relative;
+        line-height: 21px;
+        text-align: left;
+        padding: 0;
+
+    }
+
+    ul li.s_qq {
+        background: lightblue;
+        width: 100%;
+        display: inline-block;
+        position: relative;
+        line-height: 21px;
+        text-align: left;
+        padding: 0;
+
+    }
+
+    ul li#selected {
+        font-weight: bold;
+        background: yellow;
+    }
+
+    ul li:hover {
+        font-weight: bold;
+        background: yellow;
+    }
+
+    ul li p {
+        margin-left: 2px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        display: block;
+        padding-left: 5px;
+        color: gray;
+        text-decoration: none;
+    }
+
+
+    ul li:focus {
+        color: whitesmoke;
+        background: lightblue;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <input id="email-input" type="text">
+        <ul id="email-sug-wrapper" class="email-sug">
+            <fieldset id="ul-fieldset">
+
+            </fieldset>
+        </ul>
+    </div>
+</body>
+<script>
+    var origin_style = "width: 100%;padding: 0;margin: 0;border-width: 2px;border-top-color: transparent;display:none";
+    var after_style = "width: 100%;padding: 0;margin: 0;border-width: 2px;border-top-color: transparent;";
+    //data 
+    var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+    var li_detail = {
+        head: "<li",
+        class: "class=",
+        head_end: ">",
+        li_end: "</li>"
+    };
+    //dom select
+    var fl = document.getElementById("ul-fieldset");
+    var input = document.getElementById("email-input");
+    //event 
+    var check_input = function (e) {
+        input.addEventListener("input", function () {
+            var raw_input = input.value;
+            if (raw_input == "") {
+                fl.style.cssText = origin_style;
+            } else if (raw_input != "") {
+                var array = raw_input.split("");
+                var tempstr = "";
+                tempstr = trim_space(array); //trim()
+                clear_before_postfix(); //clear before li
+                var li_array = formatter(tempstr); //format to get a li array
+                append_li(li_array); //append li to fieldset
+                fl.style = after_style; //change style of fieldset
+            }
+        });
+
+
+    };
+
+    var keyboard_listen = function (e) {
+        input.addEventListener("keyup", function (e) {
+            //console.log(e,e.key,input.value,"keyboard_listen")
+            if (input.value != "") {
+                var child = fl.children;
+                var c_length = child.length;
+                
+                var i = 0;
+                var remove_index = 0;
+                var append_index = 0;
+                //get two index;
+                for(i;i<c_length;i++){
+                    if(child[i].id=="selected"){
+                        remove_index=i;
+                    }
+                }
+                if (e.key == "ArrowUp") {
+                    console.log("up")
+                    if(remove_index==0){
+                        append_index = c_length-1;
+                        child[remove_index].setAttribute("id","");
+                        child[append_index].setAttribute("id","selected");
+                    }
+                    else{
+                        append_index=remove_index-1;
+                        child[remove_index].setAttribute("id","");
+                        child[append_index].setAttribute("id","selected");
+
+                    }
+                } else if (e.key == "ArrowDown") {
+                    console.log("down")
+                    if(remove_index==c_length-1){
+                        append_index = 0;
+                        child[remove_index].setAttribute("id","");
+                        child[append_index].setAttribute("id","selected");
+                    }
+                    else{
+                        append_index=remove_index+1;
+                        child[remove_index].setAttribute("id","");
+                        child[append_index].setAttribute("id","selected");
+
+                    }
+                }
+                else if(e.key =="Enter"){
+                    input.value = child[remove_index].innerHTML;
+                    fl.style=origin_style;
+                }
+            } else {
+                console.log("input value :null")
+            }
+        })
+    }
+    var mouse_listen = function (e) {
+        fl.addEventListener("click", function (el) {
+            var temp = el["srcElement"];
+            //console.log(el["srcElement"],temp.nodeName,temp.innerHTML,typeof(el["srcElement"]))
+            input.value = temp.innerHTML;
+            fl.style = origin_style;
+        })
+    };
+
+    //function 
+    function clear_before_postfix() {
+        //console.log(fl.children, fl.children.length)
+        while (fl.firstChild) {
+            fl.removeChild(fl.firstChild)
+        }
+    }
+
+    function trim_space(array) {
+
+        var len = array.length;
+        var i = 0;
+        var result = "";
+        var counter = 0;
+        for (i; i < len; i++) {
+            if (array[i] != " ") {
+                if (array[i] != "@") {
+                    result += array[i];
+                } else {
+                    if (counter != 1) {
+                        counter++;
+                        result += "|" + array[i];
+                    } else {
+                        break;
+                    }
+                }
+            } else {
+                continue;
+            }
+        }
+
+        return result;
+
+    }
+
+    function formatter(tempstr) {
+        var p_length = postfixList.length;
+        var i = 0;
+        var array_exist = [];
+        var array_nonexist = []
+        var strhead = tempstr.split("|")[0];
+        var strtail = tempstr.split("|")[1];
+        for (i; i < p_length; i++) {
+            var check_substring = postfixList[i];
+            var li = document.createElement("li");
+            if (strtail != undefined && check_substring.includes(strtail)) {
+                //当@存在，并且@后字符为后缀子串时；
+                if (postfixList[i] == "163.com") {
+                    li.setAttribute("class", "s_163");
+                    li.setAttribute("id", "selected")
+                    li.innerHTML = strhead + "@" + postfixList[i];
+                } else if (postfixList[i] == "qq.com") {
+                    li.setAttribute("class", "s_qq");
+                    li.innerHTML = strhead + "@" + postfixList[i];
+                } else {
+                    li.innerHTML = strhead + "@" + postfixList[i];
+                }
+                //console.log("@exist","head:"+strhead,"tail:"+strtail,postfixList[i],li);
+                array_exist.push(li);
+
+            } else {
+                //当@没出现时，默认展示全部;
+                if (postfixList[i] == "163.com") {
+                    li.setAttribute("class", "s_163");
+                    li.setAttribute("id", "selected")
+                    li.innerHTML = strhead + "@" + postfixList[i];
+                } else if (postfixList[i] == "qq.com") {
+                    li.setAttribute("class", "s_qq");
+                    li.innerHTML = strhead + "@" + postfixList[i];
+                } else {
+                    li.innerHTML = strhead + "@" + postfixList[i];
+                }
+                //console.log("@ not exists", array_nonexist);
+                array_nonexist.push(li);
+            }
+        }
+        //console.log("@:",array_exist,array_exist.length,"non:",array_nonexist);
+        if (array_exist.length > 0) {
+            return array_exist;
+        } else {
+            return array_nonexist;
+        }
+    }
+
+    function append_li(array) {
+        for (var i in array) {
+            fl.appendChild(array[i])
+        }
+    }
+    keyboard_listen();
+    mouse_listen();
+    check_input("")
+    check_input("hello world")
+</script>
+
+</html>
