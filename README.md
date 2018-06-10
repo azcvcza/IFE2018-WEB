@@ -23,6 +23,23 @@ workspace for IFE2018-frontend
 
 ### [2.0第二十五天](#25_day) 
 
+### [2.1第二十八天](#28_day) 
+
+ ***   
+<a id="28_day"></a>  
+
+# 第二十八天
+
+##### 文件夹 /28_day  
+
+1.mail.html  
+
+
+<a href="https://cdn.rawgit.com/azcvcza/IFE2018-WEB/1ebe4b16/28_day/mail.html">preview:mail.html  </a>  
+<a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/28_day/mail.html">source:mail.html  </a>  
+
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/28_mail.gif"  hspace="2" vspace="2">  
+
  ***   
 <a id="25_day"></a>  
 
