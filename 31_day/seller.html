@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>seller</title>
+</head>
+<script src="ife31data.js"></script>
+
+<body>
+    <label for="">地区</label>
+    <select id="region-select">
+        <option>华东</option>
+        <option>华北</option>
+        <option>华南</option>
+    </select>
+    <label for="">产品</label>
+    <select name="" id="product-select">
+        <option value="手机">手机</option>
+        <option value="笔记本">笔记本</option>
+        <option value="智能音箱">智能音箱</option>
+        <option value="全部">全部</option>
+    </select>
+
+    <div id="table-wrapper">
+        <p id="table"></p>
+    </div>
+</body>
+<script>
+  
+    //dom select
+    var region_select = document.getElementById("region-select")
+    var product_select = document.getElementById("product-select")
+    var p_table = document.getElementById("table");
+ 
+    //event listen
+
+    var region_click = function (e) {
+        region_select.addEventListener("change", function (el) {
+            //console.log(region_select,region_select.value);
+            var region_select_value = region_select.value;
+            var product_select_value = product_select.value;
+            var arr = [];
+            for (var i in sourceData) {
+                if (sourceData[i].region == region_select_value) {
+                    arr.push(sourceData[i]);
+                }
+            }
+            var render = make_table(arr, region_select_value, product_select_value);
+            p_table.innerHTML = render;
+        })
+    }
+    var product_click = function (e) {
+        product_select.addEventListener("change", function (el) {
+            var region_select_value = region_select.value;
+            var product_select_value = product_select.value;
+            var arr = [];
+            for (var i in sourceData) {
+                if (sourceData[i].region == region_select_value) {
+                    arr.push(sourceData[i]);
+                }
+            }
+            var render = make_table(arr, region_select_value, product_select_value);
+            p_table.innerHTML = render;
+        })
+    }
+    //function area
+    function make_table(arr, region_select_value, product_select_value) {
+        var result;
+
+        //product | region | sale
+
+        var table_head = "<table>";
+        var table_tail = "</table>";
+        var table_tr_head = "<tr>";
+        var table_tr_tail = "</tr>";
+        var table_th_head = "<th>";
+        var table_th_tail = "</th>";
+        var table_td_head = "<td>";
+        var table_td_tail = "</td>";
+        var a_length = arr.length;
+        var i = 0;
+        var r_header = "";
+        var r_content = "";
+        var month_tr_data = [
+            [1],
+            [2],
+            [3],
+            [4],
+            [5],
+            [6],
+            [7],
+            [8],
+            [9],
+            [10],
+            [11],
+            [12]
+        ];
+        //deal with header
+        //1 加上地区名
+        r_header += table_tr_head + table_th_head + region_select_value + table_th_tail + table_tr_tail + table_th_head +
+            "月份" +
+            table_th_tail
+        //2 制作表头
+        for (i; i < a_length; i++) {
+            if (product_select_value == "全部") {
+                var th = table_th_head + arr[i].product + table_th_tail;
+                r_header += th;
+                continue;
+            } else if (product_select_value == arr[i].product) {
+                var th = table_th_head + arr[i].product + table_th_tail;
+                r_header += th;
+                break;
+            }
+        }
+       
+        //重复利用i ...
+        //3 将同一月份的数据取出
+        i = 0;
+        for (i; i < a_length; i++) {
+            var j = 0;
+            for (j; j < arr[i].sale.length; j++) {
+                month_tr_data[j].push(arr[i].sale[j]);
+            }
+        }
+
+        //重复利用i ...
+        // [1,手机,笔记本,智能音箱]
+        //4 将同一月份数据制作成 行 单元格
+        i = 0;
+        for (i; i < month_tr_data.length; i++) {
+            //月份 单元格
+            r_content += table_tr_head + table_td_head + (i + 1) + table_td_tail;
+            var j = 0;
+            //数据单元格
+            for (j; j < month_tr_data[i].length; j++) {
+                if (j != 0) {
+                    if(product_select_value=="手机"){
+                        r_content += table_td_head + month_tr_data[i][1] + table_td_tail;
+                        break;
+                    }
+                    else if(product_select_value=="笔记本"){
+                        r_content += table_td_head + month_tr_data[i][2] + table_td_tail;
+                        break;
+                    }
+                    else if(product_select_value=="智能音箱"){
+                        r_content += table_td_head + month_tr_data[i][3] + table_td_tail;
+                        break;
+                    }
+                    else{
+                    r_content += table_td_head + month_tr_data[i][j] + table_td_tail;
+                    }
+                } else {
+                    continue;
+                }
+            }
+            r_content += table_tr_tail;
+        }
+        //将获得的表头和tbody 加上table头
+        result = table_head + table_tr_head + r_header + table_tr_tail + r_content + table_tail;
+        return result;
+    }
+    //function call
+    region_click();
+    product_click();
+</script>
+
+</html>
