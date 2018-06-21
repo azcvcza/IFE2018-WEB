@@ -45,7 +45,7 @@ workspace for IFE2018-frontend
 2.seller.html  
 
 
-<a href="https://cdn.rawgit.com/azcvcza/IFE2018-WEB/9a7d48b2/31_day/seller1.html">preview:seller1.html  </a>  
+<a href="https://cdn.rawgit.com/azcvcza/IFE2018-WEB/9d1e9286/31_day/seller1.html">preview:seller1.html  </a>  
 <a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/31_day/seller1.html">source:seller1.html  </a>  
 
 <img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/31_seller1.gif"  hspace="2" vspace="2">  
