@@ -175,7 +175,7 @@
     function div_change(container) {
         //bind event listener;
         container.addEventListener("change", function (e) {
-            console.log("changed triggerd", container.id)
+            //console.log("changed triggerd", container.id)
             var region_child = region_div.children;
             var product_child = product_div.children;
             var region_arr = cal_checked(region_child);
@@ -203,7 +203,7 @@
 
     function render(r_arr, p_arr, mode) {
         //console.log("r_arr",r_arr,"p_arr",p_arr,"mode",mode);
-       
+
         //product | region | sale
         var table_head = "<table>";
         var table_tail = "</table>";
@@ -230,7 +230,6 @@
             [12]
         ];
         if (mode == "p1r2") {
-            //6.22 bug来了,似乎没做 1p 1r 的，导致制表失败
             // 1 or 2 or 3 product & 2 or 3 region
             // table
             // tr <th colspan="r_arr.length"> pro1 /th    |    th pro2 /th ... /tr
@@ -300,11 +299,11 @@
             var region_selected_num = r_arr[r_arr.length-1]+1;//add a column "月份"
             var product_selected_num = p_arr[p_arr.length-1];
             var iter_time = region_selected_num*product_selected_num;
-            console.log("r_s_n",region_selected_num,"p_s_n",product_selected_num,"iter_time",iter_time,"data",month_tr_data);
+            //console.log("r_s_n",region_selected_num,"p_s_n",product_selected_num,"iter_time",iter_time,"data",month_tr_data);
             i=0;
             for(i;i<month_tr_data.length;i++){
                 t_content+=table_tr_head;
-                var j = 1;
+                var j = 0;
                 var k = 0;
                 for(j,k;j<month_tr_data[i].length,k<iter_time;j++,k++){
                     if(k%region_selected_num == 0){
@@ -317,7 +316,6 @@
                 }
                 t_content+=table_tr_tail;
             }
-            console.log("p1r2",t_content)
         } else if (mode == "r1p2") {
             //one region 2 or 3 product
             //    table  
@@ -352,7 +350,7 @@
                     }
                 }
             }
-            console.log("r1p2,after building array", month_tr_data);
+            console.log("r1p2.after building array", month_tr_data);
             //build table content
             //  i
             //  |  j
@@ -367,9 +365,7 @@
                 }
                 t_content += table_tr_tail;
             }
-            console.log("r1p2",t_content)
         }
-
         p_table.innerHTML = table_head + t_header + t_content + table_tail;
     }
 
