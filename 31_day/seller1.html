@@ -304,7 +304,7 @@
             i=0;
             for(i;i<month_tr_data.length;i++){
                 t_content+=table_tr_head;
-                var j = 1;
+                var j = 1;//fixed j=0的话是从
                 var k = 0;
                 for(j,k;j<month_tr_data[i].length,k<iter_time;j++,k++){
                     if(k%region_selected_num == 0){

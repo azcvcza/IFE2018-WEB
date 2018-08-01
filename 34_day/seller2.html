@@ -6,19 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>seller1</title>
+    <style>
+        body {
+            width: 100%;
+        }
+    </style>
 </head>
 <script src="ife31data.js"></script>
 
 <body>
-    <div class="check_box_group">
-        <div id="region-radio-wrapper"></div>
-        <div id="product-radio-wrapper"></div>
+    <div style="float: left;;width:40%">
+        <div class="check_box_group" style="">
+            <div id="region-radio-wrapper"></div>
+            <div id="product-radio-wrapper"></div>
+        </div>
+
+        <div id="table-wrapper" style="">
+            <p id="table"></p>
+        </div>
+    </div>
+    <div style="float:left;display: flex;flex-direction: column;">
+        <div id="svg_holder">
+
+        </div>
+        <div id="canvas_holder" style="float:left"></div>
     </div>
 
-    <div id="table-wrapper">
-        <p id="table"></p>
-    </div>
 </body>
+<script src="bar.js"></script>
+<script src="line.js"></script>
 <script>
     //dom select
     var region_checkbox_group = document.getElementById("region-radio-wrapper");
@@ -26,8 +42,11 @@
     var region_div = document.getElementById("region-radio-wrapper");
     var product_div = document.getElementById("product-radio-wrapper");
     var p_table = document.getElementById("table");
+    var div_wrap = document.getElementById("table-wrapper")
+    var table = document.getElementsByTagName("table");
 
-    //function 
+    //function
+
     function make_checkbox(container, prop) {
         //create check_all selct_all+select_label;
 
@@ -196,10 +215,137 @@
             } else if (region_checked_num > 1 && product_checked_num > 1) {
                 var mode = "p1r2";
             }
-            render(region_arr, product_arr, mode);
+
+
+
+            var table_arr = render(region_arr, product_arr, mode);
+            //console.log(region_arr, product_arr,table_arr)
 
         })
     }
+    function dom_render_table(r_arr,p_arr,mode){
+        //product | region | sale
+        var month_tr_data = [
+            [1],
+            [2],
+            [3],
+            [4],
+            [5],
+            [6],
+            [7],
+            [8],
+            [9],
+            [10],
+            [11],
+            [12]
+        ];
+        if (mode == "p1r2") {
+            //6.22 bug来了,似乎没做 1p 1r 的，导致制表失败 | 把制表改成 j=1开始已解决。
+            // 1 or 2 or 3 product & 2 or 3 region
+            // table
+            // tr <th colspan="r_arr.length"> pro1 /th    |    th pro2 /th ... /tr
+            // tr th 月份/th th reg1/th th reg2/th .. /tr  |
+            //
+            // table
+            var table_append = document.createElement('table');
+
+            //build first line table head
+            var tr_first_head = document.createElement("tr");
+            var td_first_head = document.createElement("td");
+            var txt_first_head = document.createTextNode("")
+            //build second line table head
+            
+            //build content array 
+            //[
+            //    [1,pro[i].reg[j].sale[k]]
+            //]
+            //
+            var i = 0;
+            i = 0;
+            // p_arr["pro1","pro2",selected_num]
+            // r_arr["reg1",..,"reg3",selected_num]
+            for (i; i < sourceData.length; i++) {
+                var j = 0;
+                for (j; j < p_arr.length - 1; j++) {
+                    if (sourceData[i].product == p_arr[j]) {
+                        var k = 0;
+                        for (k; k < month_tr_data.length; k++) {
+                            var fuck = 0;
+                            for (fuck; fuck < r_arr.length - 1; fuck++) {
+                                if (sourceData[i].region == r_arr[fuck]) {
+                                    month_tr_data[k].push(sourceData[i].sale[k])
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            //make t_content with the array
+            //month_tr_data =[
+            //    [1,reg1.pro1,reg2.pro1,reg3.pro1,reg1.pro2,reg2.pro2....]
+            //  ]
+            var region_selected_num = r_arr[r_arr.length - 1] + 1; //add a column "月份"
+            var product_selected_num = p_arr[p_arr.length - 1];
+            var iter_time = region_selected_num * product_selected_num;
+            
+            i = 0;
+            for (i; i < month_tr_data.length; i++) {
+                t_content += table_tr_head;
+                var j = 1; //fixed j=0的话是从月份开始
+                var k = 0;
+                for (j, k; j < month_tr_data[i].length, k < iter_time; j++, k++) {
+                    if (k % region_selected_num == 0) {
+                        t_content += table_td_head + month_tr_data[i][0] + table_td_tail;
+                        j -= 1;
+                    } else {
+                        t_content += table_td_head + month_tr_data[i][j] + table_td_tail;
+                    }
+                }
+                t_content += table_tr_tail;
+            }
+            
+        } else if (mode == "r1p2") {
+            //one region 2 or 3 product
+            //    table  
+            //     tr  th 华北/th  /tr
+            //     tr  th 月份/th th pro1 /th th pro2 /th  th pro3 /th /tr
+            //     tr  td  0+1  /td td pro1[0]/td td pro2[0]  ..     
+            //     tr  td  1+1  /td td pro1[1]/td td pro2[1]  ..      
+            //    table
+            //build table head
+           
+            //build table content array
+            i = 0;
+            for (i; i < sourceData.length; i++) {
+                if (sourceData[i].region == r_arr[0]) {
+                    var j = 0;
+                    for (j; j < p_arr.length - 1; j++) {
+                        if (sourceData[i].product == p_arr[j]) {
+                            var k = 0;
+                            for (k; k < month_tr_data.length; k++) {
+                                month_tr_data[k].push(sourceData[i].sale[k]);
+                            }
+                        }
+                    }
+                }
+            }
+            //build table content
+            //  i
+            //  |  j
+            //  [ [1,x,y]]
+            i = 0;
+            for (i; i < month_tr_data.length; i++) {
+                t_content += table_tr_head;
+                var j = 0;
+                for (j; j < month_tr_data[i].length; j++) {
+
+                    t_content += table_td_head + month_tr_data[i][j] + table_td_tail;
+                }
+                t_content += table_tr_tail;
+            }
+        }
+    }
+
 
     function render(r_arr, p_arr, mode) {
         //console.log("r_arr",r_arr,"p_arr",p_arr,"mode",mode);
@@ -207,7 +353,7 @@
         //product | region | sale
         var table_head = "<table>";
         var table_tail = "</table>";
-        var table_tr_head = "<tr>";
+        var table_tr_head = "<tr>"; 
         var table_tr_tail = "</tr>";
         var table_th_head = "<th>";
         var table_th_tail = "</th>";
@@ -230,6 +376,7 @@
             [12]
         ];
         if (mode == "p1r2") {
+            //6.22 bug来了,似乎没做 1p 1r 的，导致制表失败 | 把制表改成 j=1开始已解决。
             // 1 or 2 or 3 product & 2 or 3 region
             // table
             // tr <th colspan="r_arr.length"> pro1 /th    |    th pro2 /th ... /tr
@@ -237,7 +384,6 @@
             //
             // table
             //build first line table head
-            //console.log(r_arr.length, r_arr);
             var i = 0;
             for (i; i < p_arr.length - 1; i++) {
                 if (i == 0) {
@@ -261,7 +407,7 @@
                     } else if (j == 0) {
                         t_header += table_th_head + "月份" + table_th_tail;
                     } else if ((i + 1 == p_arr.length) && (j + 1 == r_arr.length)) {
-                        t_header += table_th_head + r_arr[j - 1]+ + table_th_tail + table_tr_tail;
+                        t_header += table_th_head + r_arr[j - 1] + +table_th_tail + table_tr_tail;
                     } else {
                         t_header += table_th_head + r_arr[j - 1] + table_th_tail;
                     }
@@ -277,45 +423,45 @@
             // r_arr["reg1",..,"reg3",selected_num]
             for (i; i < sourceData.length; i++) {
                 var j = 0;
-                for(j;j<p_arr.length-1;j++){
-                    if(sourceData[i].product == p_arr[j]){
+                for (j; j < p_arr.length - 1; j++) {
+                    if (sourceData[i].product == p_arr[j]) {
                         var k = 0;
-                        for(k;k<month_tr_data.length;k++){
+                        for (k; k < month_tr_data.length; k++) {
                             var fuck = 0;
-                            for(fuck;fuck<r_arr.length-1;fuck++){
-                                if(sourceData[i].region == r_arr[fuck] ){
-                                  month_tr_data[k].push(sourceData[i].sale[k])
-                                 }
+                            for (fuck; fuck < r_arr.length - 1; fuck++) {
+                                if (sourceData[i].region == r_arr[fuck]) {
+                                    month_tr_data[k].push(sourceData[i].sale[k])
+                                }
                             }
                         }
                     }
                 }
             }
-            console.log("p1r2,after search,data:",month_tr_data);
+            //console.log("p1r2,after search,data:",month_tr_data);
             //make t_content with the array
             //month_tr_data =[
             //    [1,reg1.pro1,reg2.pro1,reg3.pro1,reg1.pro2,reg2.pro2....]
             //  ]
-            var region_selected_num = r_arr[r_arr.length-1]+1;//add a column "月份"
-            var product_selected_num = p_arr[p_arr.length-1];
-            var iter_time = region_selected_num*product_selected_num;
+            var region_selected_num = r_arr[r_arr.length - 1] + 1; //add a column "月份"
+            var product_selected_num = p_arr[p_arr.length - 1];
+            var iter_time = region_selected_num * product_selected_num;
             //console.log("r_s_n",region_selected_num,"p_s_n",product_selected_num,"iter_time",iter_time,"data",month_tr_data);
-            i=0;
-            for(i;i<month_tr_data.length;i++){
-                t_content+=table_tr_head;
-                var j = 0;
+            i = 0;
+            for (i; i < month_tr_data.length; i++) {
+                t_content += table_tr_head;
+                var j = 1; //fixed j=0的话是从月份开始
                 var k = 0;
-                for(j,k;j<month_tr_data[i].length,k<iter_time;j++,k++){
-                    if(k%region_selected_num == 0){
-                        t_content+=table_td_head+month_tr_data[i][0]+table_td_tail;
-                        j-=1;
-                    }
-                    else{
-                        t_content+=table_td_head+month_tr_data[i][j]+table_td_tail;
+                for (j, k; j < month_tr_data[i].length, k < iter_time; j++, k++) {
+                    if (k % region_selected_num == 0) {
+                        t_content += table_td_head + month_tr_data[i][0] + table_td_tail;
+                        j -= 1;
+                    } else {
+                        t_content += table_td_head + month_tr_data[i][j] + table_td_tail;
                     }
                 }
-                t_content+=table_tr_tail;
+                t_content += table_tr_tail;
             }
+            //console.log("p1r2",t_content)
         } else if (mode == "r1p2") {
             //one region 2 or 3 product
             //    table  
@@ -350,7 +496,7 @@
                     }
                 }
             }
-            console.log("r1p2.after building array", month_tr_data);
+            //console.log("r1p2,after building array", month_tr_data);
             //build table content
             //  i
             //  |  j
@@ -365,8 +511,11 @@
                 }
                 t_content += table_tr_tail;
             }
+            //console.log("r1p2",t_content)
         }
-        p_table.innerHTML = table_head + t_header + t_content + table_tail;
+
+        div_wrap.innerHTML = table_head + t_header + t_content + table_tail;
+        return month_tr_data;
     }
 
     function cal_checked(container) {
@@ -436,7 +585,7 @@
             id: "checkbox6",
         }
 
-    ])
+    ]);
 </script>
 
 </html>
