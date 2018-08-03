@@ -1,12 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>design pattern</title>
 </head>
+
 <body>
-    
+
 </body>
+<script>
+    function restaurant(cash,seats,employee_list){
+        this.cash = cash;
+        this.seats = seats;
+        this.employee_list = employee_list;
+    }
+    restaurant.prototype.hire = function(employee){
+        this.employee_list.push(employee);
+    }
+    restaurant.prototype.fire = function(employee){
+        var name = employee.name;
+        var i =0;
+        var len = this.employee_list.length;
+        for(i;i<len;i++){
+            if(this.employee_list[i].name == name){
+                this.employee_list[i].remove();
+                console.log("fire success");
+                return ;
+            }
+        }
+        console.log("no such person")
+    }
+    function employee(id, name, salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+    employee.prototype.work = function () {
+        console.log("s id:" + this.id + ",name:" + this.name + ",done a job");
+    }
+
+    function servant(id, name, salary) {
+        employee.call(this, id);
+        this.name = name;
+        this.salary = salary;
+
+    }
+    servant.prototype = new employee();
+    servant.prototype.constructor = servant;
+    servant.prototype.work = function (item) {
+        if (typeof (item) === 'object') {
+            var booklist = [];
+            var i = 0;
+            var len = item.length;
+            for (i; i < len; i++) {
+                booklist[i] = item[i];
+            }
+
+            this.booklist = booklist;
+            console.log("id:" + this.id + ",name:" + this.name + "'s booklist added:" + item);
+            //console.log(this.booklist)
+        } else {
+            console.log("上菜");
+        }
+    }
+
+    function cooker(id,name,salary){
+        employee.call(this,id);
+        this.name = name;
+        this.salary = salary;
+
+    }
+    cooker.prototype = new employee();
+    cooker.prototype.constructor = cooker;
+    cooker.prototype.work = function () {
+        console.log("cook id:"+this.id+",name:"+this.name+"is cooking")
+    }
+    function customer(){}
+    customer.prototype.order =function(){
+        console.log("order a dish");
+    }
+    customer.prototype.eat = function(){
+        console.log("eat eat eat");
+    }
+    function dish(name,basicprice,sellprice){
+        this.name=name;
+        this.basicprice=basicprice;
+        this.sellprice = sellprice;
+    }
+</script>
+
 </html>
