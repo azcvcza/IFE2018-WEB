@@ -27,6 +27,25 @@ workspace for IFE2018-frontend
 
 ### [2.2第三十一天](#31_day) 
 
+### [2.2第四十二天](#42_day) 
+
+***   
+<a id="31_day"></a>  
+
+# 第三十一天
+
+##### 文件夹 /31_day  
+
+1.seller.html  
+
+
+<a href="https://cdn.rawgit.com/azcvcza/IFE2018-WEB/82fa2968/42_day/shop.html">预览:shop.html  </a>  
+<a href="https://github.com/azcvcza/IFE2018-WEB/blob/master/42_day/shop.html">源码:shop.html  </a>  
+
+<img src="https://github.com/azcvcza/IFE2018-WEB/blob/master/img/42_1.png"  hspace="2" vspace="2">  
+
+
+  
 ***   
 <a id="31_day"></a>  
 
