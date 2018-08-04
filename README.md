@@ -32,11 +32,11 @@ workspace for IFE2018-frontend
 ***   
 <a id="31_day"></a>  
 
-# 第三十一天
+# 第四十二天
 
-##### 文件夹 /31_day  
+##### 文件夹 /42_day  
 
-1.seller.html  
+1.shop.html  
 
 
 <a href="https://cdn.rawgit.com/azcvcza/IFE2018-WEB/82fa2968/42_day/shop.html">预览:shop.html  </a>  
