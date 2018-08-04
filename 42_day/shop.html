@@ -12,21 +12,25 @@
 
 </body>
 <script>
-    function restaurant(cash,seats,employee_list){
-        this.cash = cash;
-        this.seats = seats;
-        this.employee_list = employee_list;
+    function restaurant(someobject){
+        console.log(someobject,someobject.cash,someobject.seats)
+        this.cash = someobject.cash;
+        this.seats = someobject.seats;
+        this.employee_list = someobject.employee_list;
     }
     restaurant.prototype.hire = function(employee){
         this.employee_list.push(employee);
+        //console.log(this.employee_list)
     }
     restaurant.prototype.fire = function(employee){
+        console.log(employee,this)
         var name = employee.name;
         var i =0;
         var len = this.employee_list.length;
         for(i;i<len;i++){
             if(this.employee_list[i].name == name){
-                this.employee_list[i].remove();
+                var remove = this.employee_list.splice(i,1);
+                console.log("after removed",remove,this.employee_list)
                 console.log("fire success");
                 return ;
             }
