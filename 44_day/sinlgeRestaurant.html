@@ -28,7 +28,36 @@
     编码
     基于提供的设计思路来完成上面的需求，通过Console.log来打印出餐厅运作的情况
     */
-    
+    var xiaowang = (function(argument){
+        var men;
+        var xiaowangjia = function(msg){
+            this.menling = msg;
+        }
+        var info = {
+            sendMessage:function(msg){
+                if(!men){
+                    men = new xiaowangjia(msg);
+                }
+                return men;
+            },
+            abc:function(){
+                return 123;
+            }
+        };
+        return info;
+    })();
+    var xiaoli = {
+        callXiaowang:function(msg){
+            var _xw = xiaowang.sendMessage(msg);
+            alert(_xw.menling);
+            console.log(_xw.menling);
+            _xw = null;//等待垃圾回收
+
+            var abc = xiaowang.abc();
+            console.log(abc);
+        }
+    }
+    xiaoli.callXiaowang("didi");
 </script>
 
 </html>
