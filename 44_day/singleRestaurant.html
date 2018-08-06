@@ -9,7 +9,15 @@
 </head>
 
 <body>
+    <div>
+        <button id="fill_queue">填充队列</button>
+        <button id="start">start</button>
+        <p id="customer_queue"></p>
+        <p id="customer_now"></p>
+        <p id="res_server"></p>
+        <p id="res_cook"></p>
 
+    </div>
 </body>
 <script>
     /*
@@ -28,6 +36,7 @@
     编码
     基于提供的设计思路来完成上面的需求，通过Console.log来打印出餐厅运作的情况
     */
+    /* example 单例
     var xiaowang = (function(argument){
         var men;
         var xiaowangjia = function(msg){
@@ -58,6 +67,14 @@
         }
     }
     xiaoli.callXiaowang("didi");
+    */
+    var costomer_queue =[];
+    var start = document.getElementById("start");
+    var fill_queue = document.getElementById("fill_queue");
+    var get_customer_queue = document.getElementById("customer_queue");
+    var customer_now = document.getElementById("customer_now");
+    var res_server = document.getElementById("res_server");
+    var res_cook = document.getElementById("res_cook");
 </script>
 
 </html>
