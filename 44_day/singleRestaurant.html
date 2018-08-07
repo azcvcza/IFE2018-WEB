@@ -69,12 +69,120 @@
     xiaoli.callXiaowang("didi");
     */
     var costomer_queue =[];
+    var dish_menu =["pie","apple","apple pie"];
     var start = document.getElementById("start");
     var fill_queue = document.getElementById("fill_queue");
     var get_customer_queue = document.getElementById("customer_queue");
     var customer_now = document.getElementById("customer_now");
     var res_server = document.getElementById("res_server");
     var res_cook = document.getElementById("res_cook");
+
+    var single_restaurant = (function(){
+        var restaurant_instance = null;
+        
+        function single_res(args){
+            this.name = args;
+            this.servant_queue = [];
+            this.cook_queue = [];
+        }
+        single_res.prototype.hire=function (args){
+            if(args.type=='servant' && this.servant_queue.length!=1){
+                this.servant_queue.push(args);
+            }
+            else if(args.type=='cook' && this.cook_queue.length!=1){
+                this.cook_queue.push(args);
+            }
+        }
+        single_res.prototype.fire=function(args){
+            if(args.type=='servant' && this.servant_queue.length==1){
+                this.servant_queue.splice(1,0);
+            }
+            else if(args.type=='cook' && this.cook_queue.length==1){
+                tthis.cook_queue.splice(1,0);
+            }
+        }
+        return {
+            name:'single_res',
+            getInstance:function(args){
+                if(instance == null){
+                    instance = new single_res(args);
+                }
+                return instance;
+            }
+        }
+        
+    })
+    var single_servant = (function(){
+        var instance = null;
+
+        function single_ser(){
+            this.name = "servant";
+            this.age =  "20";
+            this.salary = "2000";
+            this.queue = [];
+        }
+
+        single_servant.prototype.serve=function(person){
+            if(person.name =="customer"){
+                if(this.queue.length===0){
+                    this.queue.push(person.order);
+                    person.order_state ="waiting";
+                }
+                else{
+                    this.queue.splice(1,0);//delete order;
+                    person.order_state ="get_food";
+                }
+            }
+            else if(person.name == "cook"){
+                if(person.queue.length===0){
+                    person.queue.push(this.queue[0]);
+                    this.queue.splice(1,0);
+                }
+            }
+        }
+        return {
+            name:'single_servant',
+            getInstance:function(args){
+                if(instance == null){
+                    instance = new single_ser(args);
+                }
+                return instance;
+            }
+        }
+    })
+    var single_cook = (function(){
+        var instance = null;
+
+        function single_cook(args){
+            this.name = args.name;
+            this.age = args.age;
+            this.salary = args.age;
+            this.queue = [];
+        }
+
+        single_cook.prototype.serve=function(person){
+            if(person.name=="servant"){
+                if(person.queue.length!=0){
+                    this.queue.push(person.queue[0]);
+                }
+                else if(person.queue.length ==0){
+                    var done = this.queue.splice(1,0);
+                    persone.queue.push(done);
+                }
+
+            }
+            
+        }
+        return {
+            name:'single_cook',
+            getInstance:function(args){
+                if(instance == null){
+                    instance = new single_ser(args);
+                }
+                return instance;
+            }
+        }
+    })
 </script>
 
 </html>
