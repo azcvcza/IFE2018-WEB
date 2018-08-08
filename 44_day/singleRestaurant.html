@@ -80,12 +80,12 @@
     var single_restaurant = (function(){
         var restaurant_instance = null;
         
-        function single_res(args){
+        function single_res(){
             this.name = 'restaurant';
             this.servant_queue = [];
             this.cook_queue = [];
         }
-        single_res.prototype.hire=function (args){
+        function hire(args){
             if(args.type=='servant' && this.servant_queue.length!=1){
                 this.servant_queue.push(args);
                 console.log("servent enqueue,and queue:",this.servant_queue)
@@ -95,7 +95,7 @@
                 console.log("cook enqueue,and queue:",this.cook_queue)
             }
         }
-        single_res.prototype.fire=function(args){
+        function fire(args){
             if(args.type=='servant' && this.servant_queue.length==1){
                 this.servant_queue.splice(1,0);
                 console.log("servent dequeue,and queue:",this.servant_queue)
@@ -105,17 +105,24 @@
                 console.log("cook dequeue,and queue:",this.cook_queue)
             }
         }
+        function log(){
+            console.log(this.name,this.servant_queue,this.cook_queue);
+        }
         return {
             name:'single_res',
-            getInstance:function(){
+            getRestaurant:function(){
                 if(instance == null){
                     instance = new single_res();
                 }
                 return instance;
-            }
+            },
+            hire:hire,
+            fire:fire,
+            log:log,
         }
         
     })
+    
     var single_servant = (function(){
         var instance = null;
 
@@ -126,7 +133,7 @@
             this.queue = [];
         }
 
-        single_servant.prototype.get_order=function(person){
+        function get_order(person){
             if(person.name == 'customer'){
                 if(this.queue.length==0){
                     this.queue.push(person.order);
@@ -134,7 +141,7 @@
                 }
             }
         }
-        single_servant.prototype.pass_order=function(person){
+        function pass_order(person){
             if(person.name == 'cook'){
                 if(this.queue.length!=0){
                     person.queue.push(this.queue[0]);
@@ -144,7 +151,7 @@
                 }
             }
         }
-        single_servant.prototype.serve=function(person){
+        function serve(person){
             if(person.name == 'customer'){
                 //不对菜单做状态处理了
                 if(this.queue.length!=0){
@@ -156,13 +163,16 @@
         }
         
         return {
-            name:'single_servant',
-            getInstance:function(args){
+            name:'servant',
+            getServant:function(args){
                 if(instance == null){
                     instance = new single_ser(args);
                 }
                 return instance;
-            }
+            },
+            get_order:get_order,
+            pass_order:pass_order,
+            serve:serve,
         }
     })
     var single_cook = (function(){
@@ -176,7 +186,7 @@
             this.queue = [];
         }
 
-        single_cook.prototype.get_order=function(person){
+        function get_order(person){
             if(person.name == 'servant'){
                 if(this.queue.length==0){
                     this.queue.push(person.order);
@@ -185,7 +195,7 @@
             }
             
         }
-        single_cook.prototype.pass_order=function(person){
+        function pass_order(person){
             if(person.name == 'customer'){
                 if(this.queue.length!=0){
                     person.queue.push(this.queue[0]);
@@ -196,13 +206,15 @@
             }
         }
         return {
-            name:'single_cook',
-            getInstance:function(args){
+            name:'cook',
+            getCook:function(args){
                 if(instance == null){
                     instance = new single_ser(args);
                 }
                 return instance;
-            }
+            },
+            get_order:get_order,
+            pass_order:pass_order,
         }
     })
     var customer =function(dish_num){
