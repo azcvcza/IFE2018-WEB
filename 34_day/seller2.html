@@ -243,7 +243,8 @@
         var table_tr_tail = "</tr>";
         var table_th_head = "<th>";
         var table_th_tail = "</th>";
-        var table_td_head = "<td>";
+        var table_td_head = "<td class=\"";
+        var table_td_middle = "\">"
         var table_td_tail = "</td>";
         var t_header = "";
         var t_content = "";
@@ -339,14 +340,20 @@
                 var k = 0;
                 for (j, k; j < month_tr_data[i].length, k < iter_time; j++, k++) {
                     if (k % region_selected_num == 0) {
-                        t_content += table_td_head + month_tr_data[i][0] + table_td_tail;
+                        //使用模板添加CLASS.其实说起来和dom创建没什么不通,这种反而更快
+                        t_content += table_td_head +"月份"+table_td_middle+month_tr_data[i][0]+ table_td_tail;
                         j -= 1;
+                        //console.log(i,j,k,month_tr_data[i][0])
                     } else {
-                        t_content += table_td_head + month_tr_data[i][j] + table_td_tail;
+                        //console.log(j,r_arr[j],r_arr,p_arr)
+                        t_content += table_td_head +p_arr[0]+" "+r_arr[j-1]+table_td_middle +month_tr_data[i][j]+ table_td_tail;
+                        //console.log(i,j,k,month_tr_data[i][j])
                     }
+                    
                 }
                 t_content += table_tr_tail;
             }
+
             //console.log("p1r2",t_content)
         } else if (mode == "r1p2") {
             //one region 2 or 3 product
@@ -392,9 +399,15 @@
                 t_content += table_tr_head;
                 var j = 0;
                 for (j; j < month_tr_data[i].length; j++) {
-
-                    t_content += table_td_head + month_tr_data[i][j] + table_td_tail;
+                    //console.log(i,j,p_arr,r_arr);
+                    if(j==0){
+                        t_content += table_td_head +"月份"+ table_td_middle+month_tr_data[i][j] + table_td_tail;
+                    }
+                    else{
+                    t_content += table_td_head +r_arr[0]+p_arr[j-1]+ table_td_middle+month_tr_data[i][j] + table_td_tail;
                 }
+                }
+               
                 t_content += table_tr_tail;
             }
             //console.log("r1p2",t_content)
