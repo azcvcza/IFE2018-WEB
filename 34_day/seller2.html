@@ -222,7 +222,11 @@
             //console.log(region_arr, product_arr,table_arr)
             var ta = document.getElementsByTagName("table");
             //console.log("table first render",ta);
-            ta[0].firstChild.addEventListener("mouseover",function(e){
+            ta[0].addEventListener("mouseover",function(e){
+                var target = e.target;
+                if(target.nodeName=='TD'){
+                    console.log(target);
+                }
                 
             })
         })
