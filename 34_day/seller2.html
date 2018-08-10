@@ -337,25 +337,31 @@
             for (i; i < month_tr_data.length; i++) {
                 t_content += table_tr_head;
                 var j = 1; //fixed j=0的话是从月份开始
-                var k = 0;
+                var k = 0;//用于计算当前的方格,当对region_selected_num 取余等于0时,添加月份列
                 for (j, k; j < month_tr_data[i].length, k < iter_time; j++, k++) {
-                    if (k % region_selected_num == 0) {
-                        //使用模板添加CLASS.其实说起来和dom创建没什么不通,这种反而更快
+                    if (k % region_selected_num == 0) //第一列添加列 
+                    {
+                        //使用模板添加CLASS.其实说起来和dom创建没什么不同
                         t_content += table_td_head + "月份" + table_td_middle + month_tr_data[i][0] + table_td_tail;
                         j -= 1;
                         //console.log(i,j,k,month_tr_data[i][0])
                     } else {
                         //console.log(j,r_arr[j],r_arr,p_arr)
-                        t_content += table_td_head + r_arr[(j)%region_selected_num] + " " + p_arr[0] + table_td_middle + month_tr_data[i]
-                            [j] + table_td_tail;
-                        console.log(j,(j)%region_selected_num,r_arr)
+                        t_content += table_td_head +
+                            r_arr[(j + 1) % region_selected_num] +
+                            " " + p_arr[0] +
+                            table_td_middle +
+                            month_tr_data[i][j] 
+                            + table_td_tail;
+                            
+                        console.log("j:" + j,"p_num:"+product_selected_num,"r_num:"+region_selected_num, "j mod p_num:" + (j% product_selected_num), r_arr,p_arr)
                     }
 
                 }
                 t_content += table_tr_tail;
             }
 
-            console.log("p1r2",t_content)
+            //console.log("p1r2",t_content)
         } else if (mode == "r1p2") {
             //one region 2 or 3 product
             //    table  
